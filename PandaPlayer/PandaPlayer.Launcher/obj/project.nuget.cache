@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jKAmo3ymyPo=",
+  "dgSpecHash": "U7I2gXUtGds=",
   "success": true,
-  "projectFilePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Launcher/CodexPlayer.Launcher.csproj",
+  "projectFilePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Launcher/PandaPlayer.Launcher.csproj",
   "expectedPackageFiles": [
     "/Users/manuraj/.nuget/packages/libvlcsharp/3.7.0/libvlcsharp.3.7.0.nupkg.sha512",
     "/Users/manuraj/.nuget/packages/libvlcsharp.forms/3.7.0/libvlcsharp.forms.3.7.0.nupkg.sha512",
@@ -20,10 +20,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "message": "CodexPlayer.UI depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Launcher/CodexPlayer.Launcher.csproj",
+      "message": "PandaPlayer.UI depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "projectPath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Launcher/PandaPlayer.Launcher.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Launcher/CodexPlayer.Launcher.csproj",
+      "filePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Launcher/PandaPlayer.Launcher.csproj",
       "libraryId": "System.Reactive",
       "targetGraphs": [
         "net8.0-windows7.0"

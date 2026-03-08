@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ty8omS6U0ic=",
+  "dgSpecHash": "aPlA6NBG9zg=",
   "success": true,
-  "projectFilePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
+  "projectFilePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Core/PandaPlayer.Core.csproj",
   "expectedPackageFiles": [
     "/Users/manuraj/.nuget/packages/libvlcsharp/3.7.0/libvlcsharp.3.7.0.nupkg.sha512",
     "/Users/manuraj/.nuget/packages/libvlcsharp.forms/3.7.0/libvlcsharp.forms.3.7.0.nupkg.sha512",
@@ -10,22 +10,19 @@
     "/Users/manuraj/.nuget/packages/system.reactive/6.0.0/system.reactive.6.0.0.nupkg.sha512",
     "/Users/manuraj/.nuget/packages/xamarin.forms/3.2.0.871581/xamarin.forms.3.2.0.871581.nupkg.sha512",
     "/Users/manuraj/.nuget/packages/microsoft.netcore.app.ref/8.0.24/microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
-    "/Users/manuraj/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.24/microsoft.netcore.app.runtime.win-x64.8.0.24.nupkg.sha512",
-    "/Users/manuraj/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.24/microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512",
-    "/Users/manuraj/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.24/microsoft.aspnetcore.app.runtime.win-x64.8.0.24.nupkg.sha512"
+    "/Users/manuraj/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.24/microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1603",
       "level": "Warning",
-      "message": "CodexPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
+      "message": "PandaPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "projectPath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Core/PandaPlayer.Core.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
+      "filePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Core/PandaPlayer.Core.csproj",
       "libraryId": "System.Reactive",
       "targetGraphs": [
-        "net8.0",
-        "net8.0/win-x64"
+        "net8.0"
       ]
     }
   ]

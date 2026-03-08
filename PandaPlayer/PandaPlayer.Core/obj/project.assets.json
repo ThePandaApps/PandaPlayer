@@ -90,96 +90,6 @@
           "build/netstandard2.0/_._": {}
         }
       }
-    },
-    "net8.0/win-x64": {
-      "LibVLCSharp/3.7.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/LibVLCSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/LibVLCSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "LibVLCSharp.Forms/3.7.0": {
-        "type": "package",
-        "dependencies": {
-          "LibVLCSharp": "3.7.0",
-          "Xamarin.Forms": "3.2.0.871581"
-        },
-        "compile": {
-          "lib/netstandard2.0/LibVLCSharp.Forms.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/LibVLCSharp.Forms.dll": {
-            "related": ".xml"
-          }
-        },
-        "resource": {
-          "lib/netstandard2.0/fr/LibVLCSharp.Forms.resources.dll": {
-            "locale": "fr"
-          }
-        }
-      },
-      "Newtonsoft.Json/13.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Reactive/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/System.Reactive.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.Reactive.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net6.0/_._": {}
-        }
-      },
-      "Xamarin.Forms/3.2.0.871581": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {},
-          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {},
-          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "build": {
-          "build/netstandard2.0/_._": {}
-        }
-      }
     }
   },
   "libraries": {
@@ -479,11 +389,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
-      "projectName": "Panda Player.Core",
-      "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
+      "projectUniqueName": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Core/PandaPlayer.Core.csproj",
+      "projectName": "PandaPlayer.Core",
+      "projectPath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Core/PandaPlayer.Core.csproj",
       "packagesPath": "/Users/manuraj/.nuget/packages/",
-      "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/obj/",
+      "outputPath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/manuraj/.nuget/NuGet/NuGet.Config"
@@ -550,15 +460,7 @@
             "version": "[8.0.24, 8.0.24]"
           },
           {
-            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[8.0.24, 8.0.24]"
-          },
-          {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.24, 8.0.24]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.win-x64",
             "version": "[8.0.24, 8.0.24]"
           }
         ],
@@ -569,11 +471,6 @@
         },
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
       }
-    },
-    "runtimes": {
-      "win-x64": {
-        "#import": []
-      }
     }
   },
   "logs": [
@@ -581,11 +478,10 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Panda Player.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "message": "PandaPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
       "libraryId": "System.Reactive",
       "targetGraphs": [
-        "net8.0",
-        "net8.0/win-x64"
+        "net8.0"
       ]
     }
   ]

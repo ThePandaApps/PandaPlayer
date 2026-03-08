@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CxURqwaYFtA=",
+  "dgSpecHash": "4OvQ4MaSAbI=",
   "success": true,
-  "projectFilePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+  "projectFilePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Tests/PandaPlayer.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/manuraj/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/manuraj/.nuget/packages/libvlcsharp/3.7.0/libvlcsharp.3.7.0.nupkg.sha512",
@@ -32,10 +32,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "message": "CodexPlayer.Tests depends on Microsoft.NET.Test.Sdk (>= 17.8.2) but Microsoft.NET.Test.Sdk 17.8.2 was not found. Microsoft.NET.Test.Sdk 17.9.0 was resolved instead.",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+      "message": "PandaPlayer.Tests depends on Microsoft.NET.Test.Sdk (>= 17.8.2) but Microsoft.NET.Test.Sdk 17.8.2 was not found. Microsoft.NET.Test.Sdk 17.9.0 was resolved instead.",
+      "projectPath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Tests/PandaPlayer.Tests.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+      "filePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Tests/PandaPlayer.Tests.csproj",
       "libraryId": "Microsoft.NET.Test.Sdk",
       "targetGraphs": [
         "net8.0"
@@ -44,10 +44,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "message": "CodexPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+      "message": "PandaPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "projectPath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Tests/PandaPlayer.Tests.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+      "filePath": "/Users/manuraj/Panda Player/PandaPlayer/PandaPlayer.Tests/PandaPlayer.Tests.csproj",
       "libraryId": "System.Reactive",
       "targetGraphs": [
         "net8.0"
