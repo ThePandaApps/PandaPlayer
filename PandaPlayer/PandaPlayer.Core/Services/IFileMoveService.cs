@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Events;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Events;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// Interface for safe background file move operations.

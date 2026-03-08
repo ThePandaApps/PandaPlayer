@@ -1,10 +1,10 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
+using PandaPlayer.Core.Models;
 using LibVLCSharp.Shared;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// Implements screenshot capture from video frames.
@@ -21,7 +21,7 @@ namespace CodexPlayer.Core.Services
             if (string.IsNullOrEmpty(outputFolder))
             {
                 var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-                outputFolder = Path.Combine(userProfile, "Pictures", "CodexPlayer");
+                outputFolder = Path.Combine(userProfile, "Pictures", "PandaPlayer");
             }
             _outputFolder = outputFolder;
             _mediaPlayer = mediaPlayer;

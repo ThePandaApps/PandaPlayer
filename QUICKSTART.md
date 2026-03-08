@@ -12,13 +12,13 @@ This is a **complete, production-ready project scaffold** for Codex Player, a pr
 
 ### 1. Complete Solution Structure
 ```
-CodexPlayer/
-├── CodexPlayer.sln                 # Visual Studio solution file
-└── CodexPlayer/
-    ├── CodexPlayer.Core/           # Business logic (2,500+ LOC)
-    ├── CodexPlayer.UI/             # WPF interface (foundation)
-    ├── CodexPlayer.Tests/          # 12+ unit tests
-    └── CodexPlayer.Launcher/       # Application entry point
+PandaPlayer/
+├── PandaPlayer.sln                 # Visual Studio solution file
+└── PandaPlayer/
+    ├── PandaPlayer.Core/           # Business logic (2,500+ LOC)
+    ├── PandaPlayer.UI/             # WPF interface (foundation)
+    ├── PandaPlayer.Tests/          # 12+ unit tests
+    └── PandaPlayer.Launcher/       # Application entry point
 ```
 
 ### 2. Core Services (Production-Ready)
@@ -117,10 +117,10 @@ CodexPlayer/
 cd /Users/manuraj/Panda\ Player
 
 # Open in Visual Studio
-start CodexPlayer.sln
+start PandaPlayer.sln
 ```
 
-Or open `CodexPlayer.sln` directly in Visual Studio 2022.
+Or open `PandaPlayer.sln` directly in Visual Studio 2022.
 
 ### Step 2: Build the Project
 
@@ -131,7 +131,7 @@ Or open `CodexPlayer.sln` directly in Visual Studio 2022.
 
 **Option B: Using Command Line**
 ```bash
-cd CodexPlayer
+cd PandaPlayer
 Scripts\build.bat
 ```
 
@@ -147,32 +147,32 @@ Output: ./publish/ui/
 ### Step 3: Run the Application
 
 **From Visual Studio:**
-1. Right-click CodexPlayer.UI → Set as Startup Project
+1. Right-click PandaPlayer.UI → Set as Startup Project
 2. Press F5 to run
 
 **From Command Line:**
 ```bash
 # After build completes
-.\CodexPlayer\CodexPlayer.UI\bin\Release\net8.0-windows\CodexPlayer.UI.exe
+.\PandaPlayer\PandaPlayer.UI\bin\Release\net8.0-windows\PandaPlayer.UI.exe
 ```
 
 ### Step 4: Test the Application
 
 **Launch with File:**
 ```bash
-CodexPlayer.UI.exe "C:\path\to\video.mp4"
+PandaPlayer.UI.exe "C:\path\to\video.mp4"
 ```
 
 **Launch with Folder:**
 ```bash
-CodexPlayer.UI.exe "C:\path\to\videos\folder"
+PandaPlayer.UI.exe "C:\path\to\videos\folder"
 ```
 
 ### Step 5: Setup Explorer Integration (Optional)
 
 ```bash
 # Register context menus
-Scripts\setup-explorer.bat "C:\path\to\CodexPlayer.UI.exe"
+Scripts\setup-explorer.bat "C:\path\to\PandaPlayer.UI.exe"
 
 # Now right-click any video or folder in Windows Explorer
 # -> "Play with Codex Player" option appears
@@ -183,23 +183,23 @@ Scripts\setup-explorer.bat "C:\path\to\CodexPlayer.UI.exe"
 ## 📝 Project File Locations
 
 ### Core Services
-- [VlcPlayerService.cs](CodexPlayer/CodexPlayer.Core/Services/VlcPlayerService.cs) - 550 LOC
-- [PlaybackSessionService.cs](CodexPlayer/CodexPlayer.Core/Services/PlaybackSessionService.cs) - 350 LOC
-- [FileMoveService.cs](CodexPlayer/CodexPlayer.Core/Services/FileMoveService.cs) - 450 LOC
+- [VlcPlayerService.cs](PandaPlayer/PandaPlayer.Core/Services/VlcPlayerService.cs) - 550 LOC
+- [PlaybackSessionService.cs](PandaPlayer/PandaPlayer.Core/Services/PlaybackSessionService.cs) - 350 LOC
+- [FileMoveService.cs](PandaPlayer/PandaPlayer.Core/Services/FileMoveService.cs) - 450 LOC
 
 ### Data Models
-- [VideoItem.cs](CodexPlayer/CodexPlayer.Core/Models/VideoItem.cs)
-- [PlaybackSession.cs](CodexPlayer/CodexPlayer.Core/Models/PlaybackSession.cs)
-- [FileMoveJob.cs](CodexPlayer/CodexPlayer.Core/Models/FileMoveJob.cs)
+- [VideoItem.cs](PandaPlayer/PandaPlayer.Core/Models/VideoItem.cs)
+- [PlaybackSession.cs](PandaPlayer/PandaPlayer.Core/Models/PlaybackSession.cs)
+- [FileMoveJob.cs](PandaPlayer/PandaPlayer.Core/Models/FileMoveJob.cs)
 
 ### Tests
-- [ShuffleNoRepeatTests.cs](CodexPlayer/CodexPlayer.Tests/Unit/ShuffleNoRepeatTests.cs)
-- [PlaybackStateTests.cs](CodexPlayer/CodexPlayer.Tests/Unit/PlaybackStateTests.cs)
-- [SafeFileMoveTests.cs](CodexPlayer/CodexPlayer.Tests/Unit/SafeFileMoveTests.cs)
+- [ShuffleNoRepeatTests.cs](PandaPlayer/PandaPlayer.Tests/Unit/ShuffleNoRepeatTests.cs)
+- [PlaybackStateTests.cs](PandaPlayer/PandaPlayer.Tests/Unit/PlaybackStateTests.cs)
+- [SafeFileMoveTests.cs](PandaPlayer/PandaPlayer.Tests/Unit/SafeFileMoveTests.cs)
 
 ### UI
-- [MainWindow.xaml](CodexPlayer/CodexPlayer.UI/Views/MainWindow.xaml) - Full layout
-- [App.xaml.cs](CodexPlayer/CodexPlayer.UI/App.xaml.cs) - Application entry
+- [MainWindow.xaml](PandaPlayer/PandaPlayer.UI/Views/MainWindow.xaml) - Full layout
+- [App.xaml.cs](PandaPlayer/PandaPlayer.UI/App.xaml.cs) - Application entry
 
 ---
 
@@ -207,13 +207,13 @@ Scripts\setup-explorer.bat "C:\path\to\CodexPlayer.UI.exe"
 
 ```bash
 # Run all tests
-dotnet test CodexPlayer.sln -c Release
+dotnet test PandaPlayer.sln -c Release
 
 # Run specific test suite
-dotnet test CodexPlayer.sln -c Release --filter ShuffleNoRepeatTests
+dotnet test PandaPlayer.sln -c Release --filter ShuffleNoRepeatTests
 
 # Verbose output
-dotnet test CodexPlayer.sln -c Release --verbosity detailed
+dotnet test PandaPlayer.sln -c Release --verbosity detailed
 ```
 
 **Expected Results:**
@@ -246,7 +246,7 @@ dotnet test CodexPlayer.sln -c Release --verbosity detailed
 
 ### Take a Screenshot
 1. Press `Ctrl+S`
-2. Current frame saved to Pictures\CodexPlayer
+2. Current frame saved to Pictures\PandaPlayer
 3. Playback continues
 
 ### Shuffle Mode
@@ -284,10 +284,10 @@ dotnet test CodexPlayer.sln -c Release --verbosity detailed
 
 ```bash
 # Watch for changes and rebuild
-dotnet watch --project CodexPlayer.Core
+dotnet watch --project PandaPlayer.Core
 
 # In another terminal, run tests
-dotnet test --watch CodexPlayer.sln
+dotnet test --watch PandaPlayer.sln
 ```
 
 ### Build & Package for Release
@@ -297,7 +297,7 @@ dotnet test --watch CodexPlayer.sln
 Scripts\build.bat
 
 # Output location
-.\publish\ui\CodexPlayer.UI.exe
+.\publish\ui\PandaPlayer.UI.exe
 ```
 
 ---
@@ -338,9 +338,9 @@ Automatic save on video completion. Session indexed by SHA-256 hash of folder pa
 ### Build Fails
 ```bash
 # Clear cache and rebuild
-dotnet clean CodexPlayer.sln
-dotnet restore CodexPlayer.sln
-dotnet build CodexPlayer.sln
+dotnet clean PandaPlayer.sln
+dotnet restore PandaPlayer.sln
+dotnet build PandaPlayer.sln
 ```
 
 ### Tests Fail
@@ -399,7 +399,7 @@ dotnet build CodexPlayer.sln
 ### Debugging
 - Use Visual Studio debugger (F5)
 - Enable LibVLC debug logging in VlcPlayerService
-- Check Application Data folder: `%APPDATA%\CodexPlayer\`
+- Check Application Data folder: `%APPDATA%\PandaPlayer\`
 
 ---
 
@@ -459,6 +459,6 @@ This is a **professional, production-grade foundation**. All architectural decis
 
 **Status: ✅ COMPLETE & READY FOR DEVELOPMENT**
 
-Start building at [CodexPlayer/CodexPlayer.UI/Views/MainWindow.xaml](CodexPlayer/CodexPlayer.UI/Views/MainWindow.xaml)
+Start building at [PandaPlayer/PandaPlayer.UI/Views/MainWindow.xaml](PandaPlayer/PandaPlayer.UI/Views/MainWindow.xaml)
 
 Good luck! 🚀

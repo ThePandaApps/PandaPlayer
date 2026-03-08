@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 
-namespace CodexPlayer.Core.Persistence
+namespace PandaPlayer.Core.Persistence
 {
     public class JsonFolderStateStore : IFolderStateStore
     {
@@ -15,7 +15,7 @@ namespace CodexPlayer.Core.Persistence
 
         public JsonFolderStateStore()
         {
-            var appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CodexPlayer");
+            var appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PandaPlayer");
             Directory.CreateDirectory(appData);
             _storagePath = Path.Combine(appData, "folder_history.json");
             Load();

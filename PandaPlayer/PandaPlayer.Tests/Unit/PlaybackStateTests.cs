@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Persistence;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Persistence;
 
-namespace CodexPlayer.Tests.Unit
+namespace PandaPlayer.Tests.Unit
 {
     /// <summary>
     /// Tests for persistence and restoration of playback progress.

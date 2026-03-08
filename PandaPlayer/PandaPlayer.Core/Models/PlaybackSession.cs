@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CodexPlayer.Core.Models
+namespace PandaPlayer.Core.Models
 {
     /// <summary>
     /// Represents a folder session with multiple video items for playback.

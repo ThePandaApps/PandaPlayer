@@ -5,10 +5,10 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Events;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Events;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// Safe background file move with SHA-256 verification and conflict resolution.

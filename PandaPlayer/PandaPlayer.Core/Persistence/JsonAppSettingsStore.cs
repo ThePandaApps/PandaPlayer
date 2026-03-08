@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
+using PandaPlayer.Core.Models;
 using Newtonsoft.Json;
 
-namespace CodexPlayer.Core.Persistence
+namespace PandaPlayer.Core.Persistence
 {
     /// <summary>
     /// JSON-based implementation for persisting application settings.
@@ -17,7 +17,7 @@ namespace CodexPlayer.Core.Persistence
         public JsonAppSettingsStore(string appDataFolderPath = null)
         {
             if (string.IsNullOrEmpty(appDataFolderPath))
-                appDataFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CodexPlayer");
+                appDataFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PandaPlayer");
 
             if (!Directory.Exists(appDataFolderPath))
                 Directory.CreateDirectory(appDataFolderPath);
@@ -75,7 +75,7 @@ namespace CodexPlayer.Core.Persistence
         private PlaybackSettings GetDefaultSettings()
         {
             var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            var screenshotFolder = Path.Combine(userProfile, "Pictures", "CodexPlayer");
+            var screenshotFolder = Path.Combine(userProfile, "Pictures", "PandaPlayer");
             
             return new PlaybackSettings
             {

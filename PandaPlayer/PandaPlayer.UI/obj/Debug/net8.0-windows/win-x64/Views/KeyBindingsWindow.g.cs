@@ -32,7 +32,7 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace CodexPlayer.UI.Views {
+namespace PandaPlayer.UI.Views {
     
     
     /// <summary>
@@ -60,7 +60,7 @@ namespace CodexPlayer.UI.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CodexPlayer.UI;V1.0.0.0;component/views/keybindingswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PandaPlayer.UI;V1.0.0.0;component/views/keybindingswindow.xaml", System.UriKind.Relative);
             
             #line 1 "../../../../../Views/KeyBindingsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

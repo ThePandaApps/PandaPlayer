@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Events;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Events;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// Interface for VLC-based playback engine service.

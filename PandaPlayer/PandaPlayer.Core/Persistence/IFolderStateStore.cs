@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CodexPlayer.Core.Persistence
+namespace PandaPlayer.Core.Persistence
 {
     public class FolderPlaybackState
     {

@@ -214,7 +214,7 @@ Occurs when:
 
 ### 3.2 Customization
 
-**Storage:** `%APPDATA%\CodexPlayer\settings.json`
+**Storage:** `%APPDATA%\PandaPlayer\settings.json`
 
 ```json
 "KeyboardShortcuts": {
@@ -245,14 +245,14 @@ Occurs when:
 ```
 Input: video_meeting_2026-02-24.mp4 at 14:30:45
 Output: video_meeting_2026-02-24_20260224_143045.png
-Path: C:\Users\YourUser\Pictures\CodexPlayer\video_meeting_2026-02-24_20260224_143045.png
+Path: C:\Users\YourUser\Pictures\PandaPlayer\video_meeting_2026-02-24_20260224_143045.png
 ```
 
 ### 4.2 Configuration
 
 **Settings:**
 ```json
-"ScreenshotFolder": "C:\\Users\\YourUser\\Pictures\\CodexPlayer"
+"ScreenshotFolder": "C:\\Users\\YourUser\\Pictures\\PandaPlayer"
 ```
 
 **UI Configuration:**
@@ -497,16 +497,16 @@ UI Update: Progress counters reset
 **Entry Point:**
 ```batch
 # Video files
-HKCR\.mp4\shell\CodexPlayer
+HKCR\.mp4\shell\PandaPlayer
   (Default) = "Play with Codex Player"
-  HKCR\.mp4\shell\CodexPlayer\command
-    (Default) = "C:\path\to\CodexPlayer.exe "%1""
+  HKCR\.mp4\shell\PandaPlayer\command
+    (Default) = "C:\path\to\PandaPlayer.exe "%1""
 
 # Folders
-HKCR\Directory\shell\CodexPlayerFolder
+HKCR\Directory\shell\PandaPlayerFolder
   (Default) = "Play Folder with Codex Player"
-  HKCR\Directory\shell\CodexPlayerFolder\command
-    (Default) = "C:\path\to\CodexPlayer.exe "%1""
+  HKCR\Directory\shell\PandaPlayerFolder\command
+    (Default) = "C:\path\to\PandaPlayer.exe "%1""
 ```
 
 ### 7.3 Launch Argument Handling
@@ -536,7 +536,7 @@ static void Main(string[] args)
 
 ### 8.1 User Settings
 
-**Location:** `%APPDATA%\CodexPlayer\settings.json`
+**Location:** `%APPDATA%\PandaPlayer\settings.json`
 
 **Full Schema:**
 ```json
@@ -545,7 +545,7 @@ static void Main(string[] args)
   "SeekBackwardSeconds": 5,
   "Volume": 1.0,
   "HardwareAccelerationEnabled": true,
-  "ScreenshotFolder": "C:\\Users\\User\\Pictures\\CodexPlayer",
+  "ScreenshotFolder": "C:\\Users\\User\\Pictures\\PandaPlayer",
   "MoveTargetFolders": {
     "1": "C:\\Videos\\Approved",
     "2": "C:\\Videos\\Needs-Edit"
@@ -564,7 +564,7 @@ static void Main(string[] args)
 
 ### 8.2 Session Metadata
 
-**Location:** `%APPDATA%\CodexPlayer\sessions\session_{hash}.json`
+**Location:** `%APPDATA%\PandaPlayer\sessions\session_{hash}.json`
 
 **Schema:**
 ```json

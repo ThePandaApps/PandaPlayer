@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Services;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Services;
 
-namespace CodexPlayer.Tests.Unit
+namespace PandaPlayer.Tests.Unit
 {
     /// <summary>
     /// Tests for safe file move pipeline with verification.

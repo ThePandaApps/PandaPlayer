@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 
-namespace CodexPlayer.Launcher
+namespace PandaPlayer.Launcher
 {
     /// <summary>
     /// Entry point for Codex Player application.

@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <AssemblyName>CodexPlayer.Launcher</AssemblyName>
-    <RootNamespace>CodexPlayer.Launcher</RootNamespace>
+    <AssemblyName>PandaPlayer.Launcher</AssemblyName>
+    <RootNamespace>PandaPlayer.Launcher</RootNamespace>
     <OutputType>WinExe</OutputType>
     <LangVersion>latest</LangVersion>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodexPlayer.UI\CodexPlayer.UI.csproj" />
+    <ProjectReference Include="..\PandaPlayer.UI\PandaPlayer.UI.csproj" />
   </ItemGroup>
 
 </Project>

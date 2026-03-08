@@ -1,12 +1,12 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Events;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Events;
 using LibVLCSharp.Shared;
 using System.Runtime.InteropServices;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// VLC-based implementation of the player service.
@@ -132,7 +132,7 @@ namespace CodexPlayer.Core.Services
             {
                 var logDir = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                    "CodexPlayer", "logs");
+                    "PandaPlayer", "logs");
                 
                 if (!Directory.Exists(logDir))
                     Directory.CreateDirectory(logDir);

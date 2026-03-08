@@ -12,15 +12,15 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
-using CodexPlayer.Core.Services;
-using CodexPlayer.Core.Persistence;
-using CodexPlayer.Core.Models;
-using CodexPlayer.UI.Models;
-using CodexPlayer.UI.Services;
-using CodexPlayer.UI.Views;
+using PandaPlayer.Core.Services;
+using PandaPlayer.Core.Persistence;
+using PandaPlayer.Core.Models;
+using PandaPlayer.UI.Models;
+using PandaPlayer.UI.Services;
+using PandaPlayer.UI.Views;
 using WinForms = System.Windows.Forms;
 
-namespace CodexPlayer.UI
+namespace PandaPlayer.UI
 {
     public partial class MainWindow : Window
     {
@@ -105,7 +105,7 @@ namespace CodexPlayer.UI
             {
                 Log($"FATAL: {ex.GetType().Name}: {ex.Message}\n{ex.StackTrace}");
                 MessageBox.Show(
-                    $"Failed to initialize Panda Player\n\nError: {ex.Message}\n\nCheck logs in:\n%LOCALAPPDATA%\\CodexPlayer\\logs",
+                    $"Failed to initialize Panda Player\n\nError: {ex.Message}\n\nCheck logs in:\n%LOCALAPPDATA%\\PandaPlayer\\logs",
                     "Startup Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 Close();
             }
@@ -121,7 +121,7 @@ namespace CodexPlayer.UI
             Log("VlcPlayerService created");
 
             var appData   = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var storePath = Path.Combine(appData, "CodexPlayer");
+            var storePath = Path.Combine(appData, "PandaPlayer");
             Directory.CreateDirectory(storePath);
 
             _keyBindingService = new KeyBindingService(storePath);
@@ -175,8 +175,8 @@ namespace CodexPlayer.UI
                 // Playback mode
                 _playMode = s.DefaultPlaybackMode switch
                 {
-                    CodexPlayer.Core.Models.PlaybackMode.Shuffle          => PlayMode.Shuffle,
-                    CodexPlayer.Core.Models.PlaybackMode.NoRepeatShuffle  => PlayMode.NoRepeatShuffle,
+                    PandaPlayer.Core.Models.PlaybackMode.Shuffle          => PlayMode.Shuffle,
+                    PandaPlayer.Core.Models.PlaybackMode.NoRepeatShuffle  => PlayMode.NoRepeatShuffle,
                     _                                                      => PlayMode.Sequential
                 };
                 string modeStr = _playMode switch
@@ -209,9 +209,9 @@ namespace CodexPlayer.UI
 
             var coreMode = _playMode switch
             {
-                PlayMode.Shuffle         => CodexPlayer.Core.Models.PlaybackMode.Shuffle,
-                PlayMode.NoRepeatShuffle => CodexPlayer.Core.Models.PlaybackMode.NoRepeatShuffle,
-                _                        => CodexPlayer.Core.Models.PlaybackMode.Sequential
+                PlayMode.Shuffle         => PandaPlayer.Core.Models.PlaybackMode.Shuffle,
+                PlayMode.NoRepeatShuffle => PandaPlayer.Core.Models.PlaybackMode.NoRepeatShuffle,
+                _                        => PandaPlayer.Core.Models.PlaybackMode.Sequential
             };
 
             return new PlaybackSettings

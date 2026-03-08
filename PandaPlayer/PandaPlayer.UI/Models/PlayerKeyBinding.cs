@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Input;
 
-namespace CodexPlayer.UI.Models
+namespace PandaPlayer.UI.Models
 {
     public class PlayerKeyBinding
     {

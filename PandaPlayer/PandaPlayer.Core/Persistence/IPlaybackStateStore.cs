@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
+using PandaPlayer.Core.Models;
 
-namespace CodexPlayer.Core.Persistence
+namespace PandaPlayer.Core.Persistence
 {
     /// <summary>
     /// Interface for persisting and retrieving playback progress per folder session.

@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Diagnostics;
 
-namespace CodexPlayer.UI
+namespace PandaPlayer.UI
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -19,7 +19,7 @@ namespace CodexPlayer.UI
                 // Set up logging
                 _logPath = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                    "CodexPlayer", "logs", $"app_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.log");
+                    "PandaPlayer", "logs", $"app_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.log");
                 
                 EnsureLogDirectoryExists();
                 LogMessage("=== Application Starting ===");

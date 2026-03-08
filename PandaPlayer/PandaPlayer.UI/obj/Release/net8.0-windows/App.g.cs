@@ -31,7 +31,7 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace CodexPlayer.UI {
+namespace PandaPlayer.UI {
     
     
     /// <summary>
@@ -46,7 +46,7 @@ namespace CodexPlayer.UI {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.3.0")]
         public static void Main() {
-            CodexPlayer.UI.App app = new CodexPlayer.UI.App();
+            PandaPlayer.UI.App app = new PandaPlayer.UI.App();
             app.Run();
         }
     }

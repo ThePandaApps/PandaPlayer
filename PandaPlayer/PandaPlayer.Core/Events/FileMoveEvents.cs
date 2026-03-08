@@ -1,6 +1,6 @@
 using System;
 
-namespace CodexPlayer.Core.Events
+namespace PandaPlayer.Core.Events
 {
     /// <summary>
     /// Base event for file move operations.

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <AssemblyName>CodexPlayer.Tests</AssemblyName>
-    <RootNamespace>CodexPlayer.Tests</RootNamespace>
+    <AssemblyName>PandaPlayer.Tests</AssemblyName>
+    <RootNamespace>PandaPlayer.Tests</RootNamespace>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodexPlayer.Core\CodexPlayer.Core.csproj" />
+    <ProjectReference Include="..\PandaPlayer.Core\PandaPlayer.Core.csproj" />
   </ItemGroup>
 
 </Project>

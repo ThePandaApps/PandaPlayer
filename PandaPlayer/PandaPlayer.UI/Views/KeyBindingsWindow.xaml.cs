@@ -6,10 +6,10 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CodexPlayer.UI.Models;
-using CodexPlayer.UI.Services;
+using PandaPlayer.UI.Models;
+using PandaPlayer.UI.Services;
 
-namespace CodexPlayer.UI.Views
+namespace PandaPlayer.UI.Views
 {
     public partial class KeyBindingsWindow : Window
     {
@@ -170,13 +170,13 @@ namespace CodexPlayer.UI.Views
 
             var path = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "CodexPlayer", "keybindings.json");
+                "PandaPlayer", "keybindings.json");
 
             try { File.Delete(path); } catch { }
 
             // Reload service defaults in-memory
             var fresh = new KeyBindingService(
-                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CodexPlayer"));
+                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PandaPlayer"));
 
             _service.Bindings.Clear();
             _service.Bindings.AddRange(fresh.Bindings);

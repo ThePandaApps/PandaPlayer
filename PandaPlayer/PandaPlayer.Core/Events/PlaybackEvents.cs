@@ -1,7 +1,7 @@
 using System;
-using CodexPlayer.Core.Models;
+using PandaPlayer.Core.Models;
 
-namespace CodexPlayer.Core.Events
+namespace PandaPlayer.Core.Events
 {
     /// <summary>
     /// Base event for playback state changes.

@@ -151,7 +151,7 @@ Focus: Establish architecture, core playback, and safe move operations
 
 ## Phase 1 Code Completion Status
 
-### CodexPlayer.Core (✅ COMPLETE)
+### PandaPlayer.Core (✅ COMPLETE)
 
 **Models** (4/4 files)
 - ✅ VideoItem.cs
@@ -176,7 +176,7 @@ Focus: Establish architecture, core playback, and safe move operations
 
 **Total Core:** ~2,500 LOC
 
-### CodexPlayer.UI (✅ BASELINE)
+### PandaPlayer.UI (✅ BASELINE)
 
 **Views** (1/3 implemented)
 - ✅ MainWindow.xaml (XAML layout)
@@ -189,7 +189,7 @@ Focus: Establish architecture, core playback, and safe move operations
 
 **Total UI:** ~400 LOC (foundation only)
 
-### CodexPlayer.Tests (✅ COMPLETE)
+### PandaPlayer.Tests (✅ COMPLETE)
 
 **Unit Tests** (3/3 test suites)
 - ✅ ShuffleNoRepeatTests.cs
@@ -198,7 +198,7 @@ Focus: Establish architecture, core playback, and safe move operations
 
 **Total Tests:** ~350 LOC
 
-### CodexPlayer.Launcher (✅ COMPLETE)
+### PandaPlayer.Launcher (✅ COMPLETE)
 
 - ✅ Program.cs (entry point with CLI handling)
 
@@ -321,13 +321,13 @@ Focus: Establish architecture, core playback, and safe move operations
 
 **Windows:**
 ```bash
-cd CodexPlayer
+cd PandaPlayer
 Scripts\build.bat
 ```
 
 **Cross-platform:**
 ```bash
-cd CodexPlayer
+cd PandaPlayer
 bash Scripts/build.sh
 ```
 
@@ -336,34 +336,34 @@ bash Scripts/build.sh
 **Start Application:**
 ```bash
 # After build, from publish directory
-CodexPlayer.UI.exe
+PandaPlayer.UI.exe
 ```
 
 **Launch with File:**
 ```bash
-CodexPlayer.UI.exe "C:\Videos\video.mp4"
+PandaPlayer.UI.exe "C:\Videos\video.mp4"
 ```
 
 **Launch with Folder:**
 ```bash
-CodexPlayer.UI.exe "C:\Videos\MyFolder"
+PandaPlayer.UI.exe "C:\Videos\MyFolder"
 ```
 
 ### Testing
 
 **Run All Tests:**
 ```bash
-dotnet test CodexPlayer.sln -c Release
+dotnet test PandaPlayer.sln -c Release
 ```
 
 **Run Specific Suite:**
 ```bash
-dotnet test CodexPlayer.sln -c Release --filter ShuffleNoRepeatTests
+dotnet test PandaPlayer.sln -c Release --filter ShuffleNoRepeatTests
 ```
 
 **Verbose Output:**
 ```bash
-dotnet test CodexPlayer.sln -c Release --verbosity detailed
+dotnet test PandaPlayer.sln -c Release --verbosity detailed
 ```
 
 ---
@@ -451,21 +451,21 @@ dotnet test CodexPlayer.sln -c Release --verbosity detailed
 ## Repository Structure Ready for Development
 
 ```
-CodexPlayer/
-├── CodexPlayer.sln              # Ready to build
-├── CodexPlayer/
-│   ├── CodexPlayer.Core/        # 2,500+ LOC complete
+PandaPlayer/
+├── PandaPlayer.sln              # Ready to build
+├── PandaPlayer/
+│   ├── PandaPlayer.Core/        # 2,500+ LOC complete
 │   │   ├── Models/              # 5 model files
 │   │   ├── Services/            # 5 service interfaces + implementations
 │   │   ├── Events/              # 2 event definition files
 │   │   └── Persistence/         # 2 store implementations
-│   ├── CodexPlayer.UI/          # Foundation ready
+│   ├── PandaPlayer.UI/          # Foundation ready
 │   │   ├── Views/               # MainWindow XAML
 │   │   ├── App.xaml[.cs]       # Entry point
 │   │   └── [empty] ViewModels/  # Ready for expansion
-│   ├── CodexPlayer.Tests/       # 3 test suites, 12+ tests
+│   ├── PandaPlayer.Tests/       # 3 test suites, 12+ tests
 │   │   └── Unit/
-│   └── CodexPlayer.Launcher/    # Entry point program
+│   └── PandaPlayer.Launcher/    # Entry point program
 ├── Scripts/                     # 4 build/setup scripts
 ├── Docs/                        # 3 documentation files
 └── README.md                    # Complete user guide

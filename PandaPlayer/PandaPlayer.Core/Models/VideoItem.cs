@@ -1,6 +1,6 @@
 using System;
 
-namespace CodexPlayer.Core.Models
+namespace PandaPlayer.Core.Models
 {
     /// <summary>
     /// Represents a single video file for playback.

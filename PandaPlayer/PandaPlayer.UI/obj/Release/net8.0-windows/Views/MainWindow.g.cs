@@ -31,7 +31,7 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace CodexPlayer.UI {
+namespace PandaPlayer.UI {
     
     
     /// <summary>
@@ -51,7 +51,7 @@ namespace CodexPlayer.UI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CodexPlayer.UI;component/views/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PandaPlayer.UI;component/views/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "../../../../Views/MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

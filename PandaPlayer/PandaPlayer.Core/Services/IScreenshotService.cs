@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
+using PandaPlayer.Core.Models;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// Interface for screenshot capture and management.

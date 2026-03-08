@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Input;
-using CodexPlayer.UI.Models;
+using PandaPlayer.UI.Models;
 
-namespace CodexPlayer.UI.Services
+namespace PandaPlayer.UI.Services
 {
     public class KeyBindingService
     {

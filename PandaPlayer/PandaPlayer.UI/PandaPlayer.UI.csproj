@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AssemblyName>CodexPlayer.UI</AssemblyName>
-    <RootNamespace>CodexPlayer.UI</RootNamespace>
+    <AssemblyName>PandaPlayer.UI</AssemblyName>
+    <RootNamespace>PandaPlayer.UI</RootNamespace>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <LangVersion>latest</LangVersion>
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodexPlayer.Core\CodexPlayer.Core.csproj" />
+    <ProjectReference Include="..\PandaPlayer.Core\PandaPlayer.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

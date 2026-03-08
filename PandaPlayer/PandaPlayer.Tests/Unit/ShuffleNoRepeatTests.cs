@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Moq;
-using CodexPlayer.Core.Services;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Persistence;
+using PandaPlayer.Core.Services;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Persistence;
 
-namespace CodexPlayer.Tests.Unit
+namespace PandaPlayer.Tests.Unit
 {
     /// <summary>
     /// Tests for shuffle-no-repeat playback behavior.

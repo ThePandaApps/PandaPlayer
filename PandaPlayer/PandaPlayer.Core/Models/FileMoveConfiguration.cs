@@ -1,4 +1,4 @@
-namespace CodexPlayer.Core.Models
+namespace PandaPlayer.Core.Models
 {
     /// <summary>
     /// Configuration for safe file move operations.

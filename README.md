@@ -104,21 +104,21 @@ The move operation follows a verified, safety-first sequence:
 ### Project Structure
 
 ```
-CodexPlayer/
-├── CodexPlayer.sln              # Visual Studio solution
-├── CodexPlayer.Core/            # Core business logic
+PandaPlayer/
+├── PandaPlayer.sln              # Visual Studio solution
+├── PandaPlayer.Core/            # Core business logic
 │   ├── Models/                  # Data models (VideoItem, FileMoveJob, etc.)
 │   ├── Services/                # Service interfaces and implementations
 │   ├── Events/                  # Custom event definitions
 │   └── Persistence/             # State and settings stores
-├── CodexPlayer.UI/              # WPF user interface
+├── PandaPlayer.UI/              # WPF user interface
 │   ├── Views/                   # XAML windows and controls
 │   ├── ViewModels/              # MVVM view models
 │   └── Controls/                # Custom UI controls
-├── CodexPlayer.Tests/           # Unit and integration tests
+├── PandaPlayer.Tests/           # Unit and integration tests
 │   ├── Unit/                    # Unit test suites
 │   └── Integration/             # Integration test scenarios
-├── CodexPlayer.Launcher/        # Application entry point
+├── PandaPlayer.Launcher/        # Application entry point
 └── Scripts/                     # Build and setup scripts
     ├── build.bat                # Windows build
     ├── build.sh                 # Cross-platform build
@@ -180,7 +180,7 @@ Saves/restores playback progress per folder session with hashed folder path inde
 
 ```bash
 # Navigate to project root
-cd CodexPlayer
+cd PandaPlayer
 
 # Run build script
 Scripts\build.bat
@@ -191,7 +191,7 @@ Scripts\build.bat
 #### macOS/Linux (for cross-platform development)
 
 ```bash
-cd CodexPlayer
+cd PandaPlayer
 bash Scripts/build.sh
 ```
 
@@ -201,7 +201,7 @@ After building:
 
 ```bash
 # From the project root
-CodexPlayer\CodexPlayer.UI\bin\Release\net8.0-windows\CodexPlayer.UI.exe
+PandaPlayer\PandaPlayer.UI\bin\Release\net8.0-windows\PandaPlayer.UI.exe
 ```
 
 ### Explorer Integration (Optional)
@@ -209,7 +209,7 @@ CodexPlayer\CodexPlayer.UI\bin\Release\net8.0-windows\CodexPlayer.UI.exe
 To add "Play with Codex Player" to Windows Explorer context menus:
 
 ```bash
-Scripts\setup-explorer.bat "path\to\CodexPlayer.UI.exe"
+Scripts\setup-explorer.bat "path\to\PandaPlayer.UI.exe"
 ```
 
 **Registered Menus:**
@@ -228,7 +228,7 @@ Scripts\uninstall-explorer.bat
 
 1. **Launch Application**
    ```
-   CodexPlayer.UI.exe
+   PandaPlayer.UI.exe
    ```
 
 2. **Open Video**
@@ -320,13 +320,13 @@ If destination file exists:
 
 ```bash
 # Run all tests
-dotnet test CodexPlayer.sln -c Release
+dotnet test PandaPlayer.sln -c Release
 
 # Run specific test class
-dotnet test CodexPlayer.sln -c Release --filter ClassName
+dotnet test PandaPlayer.sln -c Release --filter ClassName
 
 # Run with detailed output
-dotnet test CodexPlayer.sln -c Release --verbosity detailed
+dotnet test PandaPlayer.sln -c Release --verbosity detailed
 ```
 
 ### Test Coverage
@@ -353,7 +353,7 @@ dotnet test CodexPlayer.sln -c Release --verbosity detailed
 ### Settings File Location
 
 ```
-%APPDATA%\CodexPlayer\settings.json
+%APPDATA%\PandaPlayer\settings.json
 ```
 
 ### Default Settings Structure
@@ -364,7 +364,7 @@ dotnet test CodexPlayer.sln -c Release --verbosity detailed
   "SeekBackwardSeconds": 5,
   "Volume": 1.0,
   "HardwareAccelerationEnabled": true,
-  "ScreenshotFolder": "C:\\Users\\YourUser\\Pictures\\CodexPlayer",
+  "ScreenshotFolder": "C:\\Users\\YourUser\\Pictures\\PandaPlayer",
   "MoveTargetFolders": {
     "1": "C:\\Videos\\Review",
     "2": "C:\\Videos\\Approved"
@@ -384,7 +384,7 @@ dotnet test CodexPlayer.sln -c Release --verbosity detailed
 ### Session Progress Storage
 
 ```
-%APPDATA%\CodexPlayer\sessions\{hash}.json
+%APPDATA%\PandaPlayer\sessions\{hash}.json
 ```
 
 Each folder gets a session file named with a SHA-256 hash of the folder path for unique tracking.
@@ -470,7 +470,7 @@ To disable (faster, less safe):
 ### Session/Settings
 
 **Progress doesn't persist:**
-- Verify %APPDATA%\CodexPlayer is writable
+- Verify %APPDATA%\PandaPlayer is writable
 - Check disk space
 - Try resetting settings and restarting
 
@@ -490,20 +490,20 @@ To disable (faster, less safe):
 
 ### Adding New Features
 
-1. **Add to Core**: Define interface in `CodexPlayer.Core.Services`
+1. **Add to Core**: Define interface in `PandaPlayer.Core.Services`
 2. **Implement Service**: Create implementation in same namespace
 3. **Register in UI**: Add to MainWindow service initialization
-4. **Add Tests**: Create test class in `CodexPlayer.Tests.Unit`
+4. **Add Tests**: Create test class in `PandaPlayer.Tests.Unit`
 5. **Update Docs**: Modify this README
 
 ### Debugging
 
 ```bash
 # Run with debug console output
-dotnet run --project CodexPlayer.UI --configuration Debug
+dotnet run --project PandaPlayer.UI --configuration Debug
 
 # Attach Visual Studio debugger
-# Open CodexPlayer.sln in Visual Studio → F5
+# Open PandaPlayer.sln in Visual Studio → F5
 ```
 
 ## 📦 Dependencies

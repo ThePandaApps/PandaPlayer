@@ -1,12 +1,12 @@
 using System.Windows;
-using CodexPlayer.UI.Models;
+using PandaPlayer.UI.Models;
 
-namespace CodexPlayer.UI.Services
+namespace PandaPlayer.UI.Services
 {
     // Define a service interface for saving/loading bindings
     public interface IKeyBindingService
     {
-        System.Collections.Generic.IEnumerable<CodexPlayer.UI.Models.PlayerKeyBinding> Bindings { get; }
+        System.Collections.Generic.IEnumerable<PandaPlayer.UI.Models.PlayerKeyBinding> Bindings { get; }
         System.Windows.Input.KeyGesture GetGesture(string actionId);
         void Save();
     }

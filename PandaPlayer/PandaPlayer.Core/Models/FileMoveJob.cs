@@ -1,6 +1,6 @@
 using System;
 
-namespace CodexPlayer.Core.Models
+namespace PandaPlayer.Core.Models
 {
     /// <summary>
     /// Represents the status of a background file move operation.

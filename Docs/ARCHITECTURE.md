@@ -7,13 +7,13 @@ Codex Player is a layered, service-oriented desktop application for efficient vi
 ```
 ┌─────────────────────────────────────┐
 │         WPF User Interface          │  - MainWindow, Controls, ViewModels
-│     (CodexPlayer.UI)                │  - XAML Layout, Event Handlers
+│     (PandaPlayer.UI)                │  - XAML Layout, Event Handlers
 ├─────────────────────────────────────┤
 │         Service Layer               │  - PlayerService, SessionService
-│     (CodexPlayer.Core.Services)     │  - FileMoveService, SettingsService
+│     (PandaPlayer.Core.Services)     │  - FileMoveService, SettingsService
 ├─────────────────────────────────────┤
 │         Data Layer                  │  - Models, Persistence Stores
-│   (CodexPlayer.Core Models)         │  - Event Definitions
+│   (PandaPlayer.Core Models)         │  - Event Definitions
 └─────────────────────────────────────┘
          ↓
     LibVLC Engine (C/C++)
@@ -23,7 +23,7 @@ Codex Player is a layered, service-oriented desktop application for efficient vi
 
 ## Layer Descriptions
 
-### 1. Presentation Layer (CodexPlayer.UI)
+### 1. Presentation Layer (PandaPlayer.UI)
 
 **Responsibilities:**
 - Window layout and controls (WPF XAML)
@@ -43,7 +43,7 @@ Codex Player is a layered, service-oriented desktop application for efficient vi
 - System.Reactive for event subscriptions
 - Data binding for real-time updates
 
-### 2. Service Layer (CodexPlayer.Core.Services)
+### 2. Service Layer (PandaPlayer.Core.Services)
 
 **Responsibilities:**
 - Business logic implementation
@@ -115,7 +115,7 @@ IAppSettingsStore
 │  ├─ Settings validation
 │  └─ Default configuration
 └─ Storage:
-   └─ %APPDATA%\CodexPlayer\settings.json
+   └─ %APPDATA%\PandaPlayer\settings.json
 
 IPlaybackStateStore
 ├─ Current implementation: JsonPlaybackStateStore
@@ -124,10 +124,10 @@ IPlaybackStateStore
 │  ├─ DeleteSessionAsync()
 │  └─ Session enumeration
 └─ Storage:
-   └─ %APPDATA%\CodexPlayer\sessions\{hash}.json
+   └─ %APPDATA%\PandaPlayer\sessions\{hash}.json
 ```
 
-### 3. Data Layer (CodexPlayer.Core)
+### 3. Data Layer (PandaPlayer.Core)
 
 **Responsibilities:**
 - Data model definitions
@@ -354,7 +354,7 @@ Phase 7: Completion
 ### Settings Store (JSON)
 
 ```
-File: %APPDATA%\CodexPlayer\settings.json
+File: %APPDATA%\PandaPlayer\settings.json
 
 Lifecycle:
   OnAppStartup:
@@ -377,7 +377,7 @@ Lifecycle:
 ### Session Store (JSON per Folder)
 
 ```
-Directory: %APPDATA%\CodexPlayer\sessions\
+Directory: %APPDATA%\PandaPlayer\sessions\
 
 Filename Strategy:
   Hash = SHA256(folderPath.ToLower())
@@ -426,7 +426,7 @@ private void InitializeServices()
     // Create stores
     var appDataPath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "CodexPlayer"
+        "PandaPlayer"
     );
     var settingsStore = new JsonAppSettingsStore(appDataPath);
     var stateStore = new JsonPlaybackStateStore(appDataPath);

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using CodexPlayer.Core.Models;
-using CodexPlayer.Core.Events;
-using CodexPlayer.Core.Persistence;
+using PandaPlayer.Core.Models;
+using PandaPlayer.Core.Events;
+using PandaPlayer.Core.Persistence;
 
-namespace CodexPlayer.Core.Services
+namespace PandaPlayer.Core.Services
 {
     /// <summary>
     /// Manages playback sessions for folder-based video playback with shuffle-no-repeat support.

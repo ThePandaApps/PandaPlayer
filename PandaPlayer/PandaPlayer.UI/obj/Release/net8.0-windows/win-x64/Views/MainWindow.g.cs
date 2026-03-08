@@ -33,7 +33,7 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace CodexPlayer.UI {
+namespace PandaPlayer.UI {
     
     
     /// <summary>
@@ -309,7 +309,7 @@ namespace CodexPlayer.UI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CodexPlayer.UI;component/views/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PandaPlayer.UI;component/views/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "../../../../../Views/MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -330,13 +330,13 @@ namespace CodexPlayer.UI {
             case 1:
             
             #line 7 "../../../../../Views/MainWindow.xaml"
-            ((CodexPlayer.UI.MainWindow)(target)).PreviewKeyDown += new System.Windows.Input.KeyEventHandler(this.Window_KeyDown);
+            ((PandaPlayer.UI.MainWindow)(target)).PreviewKeyDown += new System.Windows.Input.KeyEventHandler(this.Window_KeyDown);
             
             #line default
             #line hidden
             
             #line 7 "../../../../../Views/MainWindow.xaml"
-            ((CodexPlayer.UI.MainWindow)(target)).MouseMove += new System.Windows.Input.MouseEventHandler(this.Window_MouseMove);
+            ((PandaPlayer.UI.MainWindow)(target)).MouseMove += new System.Windows.Input.MouseEventHandler(this.Window_MouseMove);
             
             #line default
             #line hidden

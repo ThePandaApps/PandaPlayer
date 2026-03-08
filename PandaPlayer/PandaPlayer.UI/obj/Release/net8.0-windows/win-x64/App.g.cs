@@ -32,7 +32,7 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace CodexPlayer.UI {
+namespace PandaPlayer.UI {
     
     
     /// <summary>
@@ -52,7 +52,7 @@ namespace CodexPlayer.UI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CodexPlayer.UI;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PandaPlayer.UI;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "../../../../App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -68,7 +68,7 @@ namespace CodexPlayer.UI {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.3.0")]
         public static void Main() {
-            CodexPlayer.UI.App app = new CodexPlayer.UI.App();
+            PandaPlayer.UI.App app = new PandaPlayer.UI.App();
             app.InitializeComponent();
             app.Run();
         }
