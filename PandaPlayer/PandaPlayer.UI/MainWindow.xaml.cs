@@ -867,7 +867,7 @@ namespace PandaPlayer.UI
             {
                 ShowFullscreenControls();
             }
-            else if (SeekRow.Visibility == Visibility.Visible)
+            else if (OverlayControlsGrid.Opacity > 0)
             {
                 // Reset auto-hide timer if mouse is not at bottom
                 _autoHideTimer?.Stop();
@@ -878,10 +878,10 @@ namespace PandaPlayer.UI
         private void ShowFullscreenControls()
         {
             if (!_isFullscreen) return;
-            if (SeekRow.Visibility != Visibility.Visible)
+            if (OverlayControlsGrid.Opacity < 1)
             {
-                SeekRow.Visibility      = Visibility.Visible;
-                TransportBar.Visibility = Visibility.Visible;
+                var sb = (Storyboard)FindResource("FadeInControls");
+                sb.Begin(OverlayControlsGrid);
             }
             _autoHideTimer?.Stop();
             _autoHideTimer?.Start();
@@ -899,8 +899,7 @@ namespace PandaPlayer.UI
                 WindowState              = WindowState.Maximized;
                 MainMenu.Visibility      = Visibility.Collapsed;
                 MainStatusBar.Visibility = Visibility.Collapsed;
-                SeekRow.Visibility       = Visibility.Collapsed;
-                TransportBar.Visibility  = Visibility.Collapsed;
+                OverlayControlsGrid.Opacity = 0;
                 MainSplitter.Visibility  = Visibility.Collapsed;
                 RightPanelColumn.Width   = new GridLength(0, GridUnitType.Pixel);
                 _isFullscreen            = true;
@@ -950,8 +949,8 @@ namespace PandaPlayer.UI
                         // If mouse is still at the bottom, don't hide yet
                         if (cur.Y < screen.Bounds.Bottom - 110)
                         {
-                            SeekRow.Visibility      = Visibility.Collapsed;
-                            TransportBar.Visibility = Visibility.Collapsed;
+                            var sb = (Storyboard)FindResource("FadeOutControls");
+                            sb.Begin(OverlayControlsGrid);
                         }
                         else
                         {
@@ -970,8 +969,8 @@ namespace PandaPlayer.UI
                 WindowState              = _prevWindowState;
                 MainMenu.Visibility      = Visibility.Visible;
                 MainStatusBar.Visibility = Visibility.Visible;
-                SeekRow.Visibility       = Visibility.Visible;
-                TransportBar.Visibility  = Visibility.Visible;
+                OverlayControlsGrid.Opacity = 1;
+                OverlayControlsGrid.Margin  = new Thickness(0);
                 MainSplitter.Visibility  = Visibility.Visible;
                 RightPanelColumn.Width   = _sidebarVisible ? _prevPanelWidth : new GridLength(0);
                 _isFullscreen            = false;
