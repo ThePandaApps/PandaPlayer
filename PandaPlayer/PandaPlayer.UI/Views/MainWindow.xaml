@@ -486,7 +486,7 @@
                 </Border>
 
                 <!-- Seek / time row -->
-                <Grid Grid.Row="1" x:Name="SeekRow" Margin="10,6,10,2">
+                <Grid Grid.Row="1" x:Name="SeekRow" Margin="10,6,10,2" Panel.ZIndex="100">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
@@ -509,7 +509,7 @@
 
                 <!-- Transport bar -->
                 <Border Grid.Row="2" x:Name="TransportBar"
-                        Background="{StaticResource BrBgPanel}" Padding="0,5,0,7">
+                        Background="{StaticResource BrBgPanel}" Padding="0,5,0,7" Panel.ZIndex="100">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>

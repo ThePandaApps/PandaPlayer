@@ -860,11 +860,16 @@ namespace PandaPlayer.UI
         private void Window_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (!_isFullscreen) return;
+
+            // Only show controls if mouse is near bottom
             var pos = e.GetPosition(this);
-            if (pos.Y >= ActualHeight - 130)
+            if (pos.Y >= ActualHeight - 110)
+            {
                 ShowFullscreenControls();
+            }
             else if (SeekRow.Visibility == Visibility.Visible)
             {
+                // Reset auto-hide timer if mouse is not at bottom
                 _autoHideTimer?.Stop();
                 _autoHideTimer?.Start();
             }
@@ -897,7 +902,7 @@ namespace PandaPlayer.UI
                 SeekRow.Visibility       = Visibility.Collapsed;
                 TransportBar.Visibility  = Visibility.Collapsed;
                 MainSplitter.Visibility  = Visibility.Collapsed;
-                RightPanelColumn.Width   = new GridLength(0);
+                RightPanelColumn.Width   = new GridLength(0, GridUnitType.Pixel);
                 _isFullscreen            = true;
 
                 // Mouse-position polling (100ms) to detect bottom-edge proximity
@@ -912,10 +917,15 @@ namespace PandaPlayer.UI
                         if (!_isFullscreen) return;
                         var cur    = WinForms.Cursor.Position;
                         var screen = WinForms.Screen.FromPoint(cur);
-                        bool atBottom = cur.Y >= screen.Bounds.Bottom - 130;
-                        bool moved    = Math.Abs(cur.X - _lastMousePos.X) > 3 ||
-                                        Math.Abs(cur.Y - _lastMousePos.Y) > 3;
-                        if (atBottom || moved) ShowFullscreenControls();
+                        
+                        // Use screen-relative coordinates for bottom detection
+                        bool atBottom = cur.Y >= screen.Bounds.Bottom - 110;
+                        
+                        if (atBottom) 
+                        {
+                            ShowFullscreenControls();
+                        }
+                        
                         _lastMousePos = cur;
                     };
                 }
@@ -933,16 +943,19 @@ namespace PandaPlayer.UI
                     {
                         _autoHideTimer.Stop();
                         if (!_isFullscreen) return;
+
                         var cur    = WinForms.Cursor.Position;
                         var screen = WinForms.Screen.FromPoint(cur);
-                        if (cur.Y < screen.Bounds.Bottom - 130)
+                        
+                        // If mouse is still at the bottom, don't hide yet
+                        if (cur.Y < screen.Bounds.Bottom - 110)
                         {
                             SeekRow.Visibility      = Visibility.Collapsed;
                             TransportBar.Visibility = Visibility.Collapsed;
                         }
                         else
                         {
-                            _autoHideTimer.Start(); // Mouse still at bottom — keep showing
+                            _autoHideTimer.Start(); 
                         }
                     };
                 }
