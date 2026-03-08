@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj": {}
+    "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj": {}
   },
   "projects": {
-    "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj": {
+    "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
-        "projectName": "CodexPlayer.Core",
-        "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
+        "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
+        "projectName": "Panda Player.Core",
+        "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
         "packagesPath": "/Users/manuraj/.nuget/packages/",
-        "outputPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/",
+        "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/manuraj/.nuget/NuGet/NuGet.Config"

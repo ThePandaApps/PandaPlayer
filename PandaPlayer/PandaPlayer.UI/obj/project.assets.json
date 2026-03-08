@@ -115,7 +115,7 @@
           "build/netstandard2.0/_._": {}
         }
       },
-      "CodexPlayer.Core/1.0.0": {
+      "Panda Player.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -125,10 +125,10 @@
           "System.Reactive": "5.4.1"
         },
         "compile": {
-          "bin/placeholder/CodexPlayer.Core.dll": {}
+          "bin/placeholder/Panda Player.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CodexPlayer.Core.dll": {}
+          "bin/placeholder/Panda Player.Core.dll": {}
         }
       }
     },
@@ -246,7 +246,7 @@
           "build/netstandard2.0/_._": {}
         }
       },
-      "CodexPlayer.Core/1.0.0": {
+      "Panda Player.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -256,10 +256,10 @@
           "System.Reactive": "5.4.1"
         },
         "compile": {
-          "bin/placeholder/CodexPlayer.Core.dll": {}
+          "bin/placeholder/Panda Player.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CodexPlayer.Core.dll": {}
+          "bin/placeholder/Panda Player.Core.dll": {}
         }
       }
     }
@@ -1902,15 +1902,15 @@
         "xamarin.forms.nuspec"
       ]
     },
-    "CodexPlayer.Core/1.0.0": {
+    "Panda Player.Core/1.0.0": {
       "type": "project",
-      "path": "../CodexPlayer.Core/CodexPlayer.Core.csproj",
-      "msbuildProject": "../CodexPlayer.Core/CodexPlayer.Core.csproj"
+      "path": "../Panda Player.Core/Panda Player.Core.csproj",
+      "msbuildProject": "../Panda Player.Core/Panda Player.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "CodexPlayer.Core >= 1.0.0",
+      "Panda Player.Core >= 1.0.0",
       "LibVLCSharp >= 3.7.0",
       "LibVLCSharp.WPF >= 3.7.0",
       "Newtonsoft.Json >= 13.0.3",
@@ -1924,11 +1924,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.UI/CodexPlayer.UI.csproj",
-      "projectName": "CodexPlayer.UI",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.UI/CodexPlayer.UI.csproj",
+      "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.UI/Panda Player.UI.csproj",
+      "projectName": "Panda Player.UI",
+      "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.UI/Panda Player.UI.csproj",
       "packagesPath": "/Users/manuraj/.nuget/packages/",
-      "outputPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.UI/obj/",
+      "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.UI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/manuraj/.nuget/NuGet/NuGet.Config"
@@ -1943,8 +1943,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj": {
-              "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj"
+            "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj": {
+              "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj"
             }
           }
         }
@@ -2049,7 +2049,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "CodexPlayer.UI depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "message": "Panda Player.UI depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
       "libraryId": "System.Reactive",
       "targetGraphs": [
         "net8.0-windows7.0",

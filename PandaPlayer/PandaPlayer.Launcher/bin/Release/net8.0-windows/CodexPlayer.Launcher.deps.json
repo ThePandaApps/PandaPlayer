@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "CodexPlayer.Launcher/1.0.0": {
+      "Panda Player.Launcher/1.0.0": {
         "dependencies": {
-          "CodexPlayer.UI": "1.0.0"
+          "Panda Player.UI": "1.0.0"
         },
         "runtime": {
-          "CodexPlayer.Launcher.dll": {}
+          "Panda Player.Launcher.dll": {}
         }
       },
       "LibVLCSharp/3.7.0": {
@@ -82,7 +82,7 @@
           }
         }
       },
-      "CodexPlayer.Core/1.0.0": {
+      "Panda Player.Core/1.0.0": {
         "dependencies": {
           "LibVLCSharp": "3.7.0",
           "LibVLCSharp.Forms": "3.7.0",
@@ -90,15 +90,15 @@
           "System.Reactive": "6.0.0"
         },
         "runtime": {
-          "CodexPlayer.Core.dll": {
+          "Panda Player.Core.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "CodexPlayer.UI/1.0.0": {
+      "Panda Player.UI/1.0.0": {
         "dependencies": {
-          "CodexPlayer.Core": "1.0.0",
+          "Panda Player.Core": "1.0.0",
           "LibVLCSharp": "3.7.0",
           "LibVLCSharp.Forms": "3.7.0",
           "LibVLCSharp.WPF": "3.7.0",
@@ -106,7 +106,7 @@
           "System.Reactive": "6.0.0"
         },
         "runtime": {
-          "CodexPlayer.UI.dll": {
+          "Panda Player.UI.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -115,7 +115,7 @@
     }
   },
   "libraries": {
-    "CodexPlayer.Launcher/1.0.0": {
+    "Panda Player.Launcher/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -162,12 +162,12 @@
       "path": "xamarin.forms/3.2.0.871581",
       "hashPath": "xamarin.forms.3.2.0.871581.nupkg.sha512"
     },
-    "CodexPlayer.Core/1.0.0": {
+    "Panda Player.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "CodexPlayer.UI/1.0.0": {
+    "Panda Player.UI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

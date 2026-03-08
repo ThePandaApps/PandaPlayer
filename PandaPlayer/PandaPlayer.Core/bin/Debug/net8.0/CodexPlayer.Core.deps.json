@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "CodexPlayer.Core/1.0.0": {
+      "Panda Player.Core/1.0.0": {
         "dependencies": {
           "LibVLCSharp": "3.7.0",
           "LibVLCSharp.Forms": "3.7.0",
@@ -14,7 +14,7 @@
           "System.Reactive": "6.0.0"
         },
         "runtime": {
-          "CodexPlayer.Core.dll": {}
+          "Panda Player.Core.dll": {}
         }
       },
       "LibVLCSharp/3.7.0": {
@@ -77,7 +77,7 @@
     }
   },
   "libraries": {
-    "CodexPlayer.Core/1.0.0": {
+    "Panda Player.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

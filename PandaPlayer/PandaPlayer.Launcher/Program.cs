@@ -6,7 +6,7 @@ using System.Windows;
 namespace PandaPlayer.Launcher
 {
     /// <summary>
-    /// Entry point for Codex Player application.
+    /// Entry point for Panda Player application.
     /// Handles command-line arguments for file/folder launching.
     /// </summary>
     public class Program
@@ -33,7 +33,7 @@ namespace PandaPlayer.Launcher
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Fatal error: {ex.Message}", "Codex Player Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Fatal error: {ex.Message}", "Panda Player Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

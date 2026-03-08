@@ -1,8 +1,8 @@
-# Codex Player - Architecture Document
+# Panda Player - Architecture Document
 
 ## System Overview
 
-Codex Player is a layered, service-oriented desktop application for efficient video library management. It separates concerns across three main layers:
+Panda Player is a layered, service-oriented desktop application for efficient video library management. It separates concerns across three main layers:
 
 ```
 ┌─────────────────────────────────────┐
@@ -91,7 +91,7 @@ IFileMoveService
 │  ├─ Progress tracking
 │  └─ Conflict detection
 └─ Safety Features:
-   ├─ Temporary file (.codex.partial)
+   ├─ Temporary file (.panda.partial)
    ├─ SHA-256 checksum verification
    ├─ Size matching validation
    ├─ Source deletion only after verification
@@ -187,7 +187,7 @@ FileMoveConfiguration
 ├─ VerifyChecksum: SHA-256 validation
 ├─ BufferSizeBytes: Copy buffer (default 1MB)
 ├─ MaxConcurrentMoves: Job queue limit (default 2)
-├─ PartialFileExtension: Temp suffix (.codex.partial)
+├─ PartialFileExtension: Temp suffix (.panda.partial)
 └─ DeleteSourceAfterVerification: Safety flag
 ```
 
@@ -239,7 +239,7 @@ FileMoveService creates FileMoveJob
 ExecuteSafeMoveAsync() on background thread
   ├─ FileMoveService.JobStarted event
   ├─ OpenRead(sourceFile)
-  ├─ Create(destFile.codex.partial)
+  ├─ Create(destFile.panda.partial)
   ├─ [Loop] Read → Write with progress updates
   │  └─ FileMoveService.JobProgress event (periodically)
   ├─ Close file handles
@@ -306,7 +306,7 @@ Phase 1: Initialize
   Acquire: Semaphore (respects MaxConcurrentMoves)
 
 Phase 2: Copy to Temporary
-  Create: tempFilePath = destPath + ".codex.partial"
+  Create: tempFilePath = destPath + ".panda.partial"
   Copy: buffer.CopyAsync(source → temp)
   Progress: Update BytesCopied, Speed, ETA
   Monitor: Allow cancellation during copy

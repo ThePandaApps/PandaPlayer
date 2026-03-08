@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj": {}
+    "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/Panda Player.Tests.csproj": {}
   },
   "projects": {
-    "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj": {
+    "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
-        "projectName": "CodexPlayer.Core",
-        "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
+        "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
+        "projectName": "Panda Player.Core",
+        "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
         "packagesPath": "/Users/manuraj/.nuget/packages/",
-        "outputPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/",
+        "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/manuraj/.nuget/NuGet/NuGet.Config"
@@ -91,14 +91,14 @@
         }
       }
     },
-    "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj": {
+    "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/Panda Player.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
-        "projectName": "CodexPlayer.Tests",
-        "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+        "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/Panda Player.Tests.csproj",
+        "projectName": "Panda Player.Tests",
+        "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/Panda Player.Tests.csproj",
         "packagesPath": "/Users/manuraj/.nuget/packages/",
-        "outputPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/obj/",
+        "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/manuraj/.nuget/NuGet/NuGet.Config"
@@ -113,8 +113,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj": {
-                "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj"
+              "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj": {
+                "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj"
               }
             }
           }

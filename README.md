@@ -1,10 +1,10 @@
-# Codex Player - Professional Video Manager for Windows
+# Panda Player - Professional Video Manager for Windows
 
-**Codex Player** is a production-ready VLC-based video player designed for efficient review and triage of large video libraries. It emphasizes keyboard-first controls, safe batch file operations, and professional-grade features for streamlined video management workflows.
+**Panda Player** is a production-ready VLC-based video player designed for efficient review and triage of large video libraries. It emphasizes keyboard-first controls, safe batch file operations, and professional-grade features for streamlined video management workflows.
 
 ## 🎯 Project Overview
 
-Codex Player combines the power of VLC's robust playback engine with a modern Windows UI specifically optimized for video curators, editors, and content managers. It enables rapid folder-based playback with advanced shuffle modes, background file move operations with data verification, and comprehensive session persistence.
+Panda Player combines the power of VLC's robust playback engine with a modern Windows UI specifically optimized for video curators, editors, and content managers. It enables rapid folder-based playback with advanced shuffle modes, background file move operations with data verification, and comprehensive session persistence.
 
 ### Key Differentiators
 
@@ -72,7 +72,7 @@ Codex Player combines the power of VLC's robust playback engine with a modern Wi
 The move operation follows a verified, safety-first sequence:
 
 1. **Pause/Release**: Stop playback to release file handle
-2. **Copy to Temporary**: Write to destination as `.codex.partial`
+2. **Copy to Temporary**: Write to destination as `.panda.partial`
 3. **Verify Copy**: Size validation + optional checksum (SHA-256)
 4. **Check Conflicts**: Detect if file already exists at destination
 5. **Finalize**: Rename partial file to final destination name
@@ -206,15 +206,15 @@ PandaPlayer\PandaPlayer.UI\bin\Release\net8.0-windows\PandaPlayer.UI.exe
 
 ### Explorer Integration (Optional)
 
-To add "Play with Codex Player" to Windows Explorer context menus:
+To add "Play with Panda Player" to Windows Explorer context menus:
 
 ```bash
 Scripts\setup-explorer.bat "path\to\PandaPlayer.UI.exe"
 ```
 
 **Registered Menus:**
-- Right-click any video file → "Play with Codex Player"
-- Right-click any folder → "Play Folder with Codex Player"
+- Right-click any video file → "Play with Panda Player"
+- Right-click any folder → "Play Folder with Panda Player"
 
 To remove Explorer integration:
 
@@ -234,12 +234,12 @@ Scripts\uninstall-explorer.bat
 2. **Open Video**
    - From menu: File → Open Video
    - Keyboard: Ctrl+O
-   - Explorer: Right-click video → "Play with Codex Player"
+   - Explorer: Right-click video → "Play with Panda Player"
 
 3. **Open Folder**
    - From menu: File → Open Folder
    - Keyboard: Ctrl+Shift+O
-   - Explorer: Right-click folder → "Play Folder with Codex Player"
+   - Explorer: Right-click folder → "Play Folder with Panda Player"
 
 ### Keyboard Shortcuts
 
@@ -393,7 +393,7 @@ Each folder gets a session file named with a SHA-256 hash of the folder path for
 
 ### Hardware Acceleration
 
-Codex Player defaults to **D3D11/DXVA** for Windows, enabling efficient 4K video playback.
+Panda Player defaults to **D3D11/DXVA** for Windows, enabling efficient 4K video playback.
 
 To disable (if experiencing issues):
 1. Edit settings.json
@@ -520,9 +520,9 @@ All packages are managed through NuGet and specified in `.csproj` files.
 
 ## 📄 License
 
-Codex Player is built upon VLC architecture. VLC and LibVLCSharp are licensed under LGPL v2.1+. See VLC documentation for licensing details.
+Panda Player is built upon VLC architecture. VLC and LibVLCSharp are licensed under LGPL v2.1+. See VLC documentation for licensing details.
 
-Codex Player application code is provided as-is for professional video management workflows.
+Panda Player application code is provided as-is for professional video management workflows.
 
 ## 🤝 Contributing
 
@@ -603,7 +603,7 @@ For issues, feature requests, or questions:
 
 ---
 
-**Codex Player** - Professional Video Management Made Simple.
+**Panda Player** - Professional Video Management Made Simple.
 Built for people who review and manage large video libraries efficiently.
 
 **Version: 1.0.0-alpha**  

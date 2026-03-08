@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "CodexPlayer.Tests/1.0.0": {
+      "Panda Player.Tests/1.0.0": {
         "dependencies": {
-          "CodexPlayer.Core": "1.0.0",
+          "Panda Player.Core": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.9.0",
           "Moq": "4.20.70",
           "xunit": "2.6.6"
         },
         "runtime": {
-          "CodexPlayer.Tests.dll": {}
+          "Panda Player.Tests.dll": {}
         }
       },
       "Castle.Core/5.1.1": {
@@ -425,7 +425,7 @@
           }
         }
       },
-      "CodexPlayer.Core/1.0.0": {
+      "Panda Player.Core/1.0.0": {
         "dependencies": {
           "LibVLCSharp": "3.7.0",
           "LibVLCSharp.Forms": "3.7.0",
@@ -433,7 +433,7 @@
           "System.Reactive": "6.0.0"
         },
         "runtime": {
-          "CodexPlayer.Core.dll": {
+          "Panda Player.Core.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -442,7 +442,7 @@
     }
   },
   "libraries": {
-    "CodexPlayer.Tests/1.0.0": {
+    "Panda Player.Tests/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -573,7 +573,7 @@
       "path": "xunit.extensibility.execution/2.6.6",
       "hashPath": "xunit.extensibility.execution.2.6.6.nupkg.sha512"
     },
-    "CodexPlayer.Core/1.0.0": {
+    "Panda Player.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

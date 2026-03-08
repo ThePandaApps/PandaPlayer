@@ -539,7 +539,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "CodexPlayer.Core/1.0.0": {
+      "Panda Player.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -549,10 +549,10 @@
           "System.Reactive": "5.4.1"
         },
         "compile": {
-          "bin/placeholder/CodexPlayer.Core.dll": {}
+          "bin/placeholder/Panda Player.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CodexPlayer.Core.dll": {}
+          "bin/placeholder/Panda Player.Core.dll": {}
         }
       }
     }
@@ -1347,15 +1347,15 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "CodexPlayer.Core/1.0.0": {
+    "Panda Player.Core/1.0.0": {
       "type": "project",
-      "path": "../CodexPlayer.Core/CodexPlayer.Core.csproj",
-      "msbuildProject": "../CodexPlayer.Core/CodexPlayer.Core.csproj"
+      "path": "../Panda Player.Core/Panda Player.Core.csproj",
+      "msbuildProject": "../Panda Player.Core/Panda Player.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "CodexPlayer.Core >= 1.0.0",
+      "Panda Player.Core >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.2",
       "Moq >= 4.20.70",
       "xunit >= 2.6.6",
@@ -1368,11 +1368,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
-      "projectName": "CodexPlayer.Tests",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/CodexPlayer.Tests.csproj",
+      "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/Panda Player.Tests.csproj",
+      "projectName": "Panda Player.Tests",
+      "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/Panda Player.Tests.csproj",
       "packagesPath": "/Users/manuraj/.nuget/packages/",
-      "outputPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Tests/obj/",
+      "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/manuraj/.nuget/NuGet/NuGet.Config"
@@ -1387,8 +1387,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj": {
-              "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj"
+            "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj": {
+              "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj"
             }
           }
         }
@@ -1463,7 +1463,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "CodexPlayer.Tests depends on Microsoft.NET.Test.Sdk (>= 17.8.2) but Microsoft.NET.Test.Sdk 17.8.2 was not found. Microsoft.NET.Test.Sdk 17.9.0 was resolved instead.",
+      "message": "Panda Player.Tests depends on Microsoft.NET.Test.Sdk (>= 17.8.2) but Microsoft.NET.Test.Sdk 17.8.2 was not found. Microsoft.NET.Test.Sdk 17.9.0 was resolved instead.",
       "libraryId": "Microsoft.NET.Test.Sdk",
       "targetGraphs": [
         "net8.0"
@@ -1473,7 +1473,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "CodexPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "message": "Panda Player.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
       "libraryId": "System.Reactive",
       "targetGraphs": [
         "net8.0"

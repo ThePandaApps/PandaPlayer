@@ -1,8 +1,8 @@
-# Codex Player - Quick Start Guide
+# Panda Player - Quick Start Guide
 
 ## 🚀 What Has Been Created
 
-This is a **complete, production-ready project scaffold** for Codex Player, a professional-grade VLC-based video player for Windows. All core architecture, services, tests, and documentation are ready for Windows development.
+This is a **complete, production-ready project scaffold** for Panda Player, a professional-grade VLC-based video player for Windows. All core architecture, services, tests, and documentation are ready for Windows development.
 
 ### Project Maturity: Phase 1 MVP Complete ✅
 
@@ -98,8 +98,8 @@ PandaPlayer/
 - Video continues playing
 
 ✅ **Windows Explorer Integration**
-- Right-click video files: "Play with Codex Player"
-- Right-click folders: "Play Folder with Codex Player"
+- Right-click video files: "Play with Panda Player"
+- Right-click folders: "Play Folder with Panda Player"
 
 ---
 
@@ -175,7 +175,7 @@ PandaPlayer.UI.exe "C:\path\to\videos\folder"
 Scripts\setup-explorer.bat "C:\path\to\PandaPlayer.UI.exe"
 
 # Now right-click any video or folder in Windows Explorer
-# -> "Play with Codex Player" option appears
+# -> "Play with Panda Player" option appears
 ```
 
 ---
@@ -309,7 +309,7 @@ Guarantees no video repeats before all others in cycle play once. Implemented in
 
 ### Safe File Move Pipeline
 7-phase process ensures source never deleted until destination verified:
-1. Copy to .codex.partial
+1. Copy to .panda.partial
 2. Verify size match
 3. Checksum validation (SHA-256)
 4. Conflict detection

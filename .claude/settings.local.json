@@ -7,7 +7,7 @@
       "Bash(pip3 install Pillow --quiet)",
       "Bash(pip3 install Pillow)",
       "Bash(python3:*)",
-      "Bash(dotnet publish CodexPlayer/CodexPlayer.UI/CodexPlayer.UI.csproj -c Release -r win-x64 --self-contained -o ./publish)",
+      "Bash(dotnet publish Panda Player/Panda Player.UI/Panda Player.UI.csproj -c Release -r win-x64 --self-contained -o ./publish)",
       "Bash(wc -l ~/.claude/projects/-Users-manuraj-Panda-Player/*.jsonl)",
       "Bash(ls -lah ~/.claude/projects/-Users-manuraj-Panda-Player/*/subagents/*.jsonl)"
     ]

@@ -1,4 +1,4 @@
-# Codex Player - Implementation Plan & Status
+# Panda Player - Implementation Plan & Status
 
 ## Project Phases Overview
 

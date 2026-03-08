@@ -1,4 +1,4 @@
-# Codex Player - Feature Specification
+# Panda Player - Feature Specification
 
 ## 1. Core Playback Features
 
@@ -319,7 +319,7 @@ On completion: source deleted, job moved to _completedJobs
 - Check: Destination disk space > file size
 
 **Phase 2: Copy**
-- Create: tempFile = destFolder\filename.codex.partial
+- Create: tempFile = destFolder\filename.panda.partial
 - Loop:
   - Read 1MB from source
   - Write to temp
@@ -484,12 +484,12 @@ UI Update: Progress counters reset
 
 **Video Files:**
 - **Extensions:** .mp4, .mkv, .avi, .mov, .wmv, .webm, .m4v, .ts, .m2ts, .flv
-- **Menu Item:** "Play with Codex Player"
+- **Menu Item:** "Play with Panda Player"
 - **Action:** Launch app with file path as argument
 
 **Folders:**
 - **All Folders:** Any directory
-- **Menu Item:** "Play Folder with Codex Player"
+- **Menu Item:** "Play Folder with Panda Player"
 - **Action:** Launch app with folder path as argument
 
 ### 7.2 Registry Integration
@@ -498,13 +498,13 @@ UI Update: Progress counters reset
 ```batch
 # Video files
 HKCR\.mp4\shell\PandaPlayer
-  (Default) = "Play with Codex Player"
+  (Default) = "Play with Panda Player"
   HKCR\.mp4\shell\PandaPlayer\command
     (Default) = "C:\path\to\PandaPlayer.exe "%1""
 
 # Folders
 HKCR\Directory\shell\PandaPlayerFolder
-  (Default) = "Play Folder with Codex Player"
+  (Default) = "Play Folder with Panda Player"
   HKCR\Directory\shell\PandaPlayerFolder\command
     (Default) = "C:\path\to\PandaPlayer.exe "%1""
 ```

@@ -479,11 +479,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
-      "projectName": "CodexPlayer.Core",
-      "projectPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/CodexPlayer.Core.csproj",
+      "projectUniqueName": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
+      "projectName": "Panda Player.Core",
+      "projectPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/Panda Player.Core.csproj",
       "packagesPath": "/Users/manuraj/.nuget/packages/",
-      "outputPath": "/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/",
+      "outputPath": "/Users/manuraj/Panda Player/Panda Player/Panda Player.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/manuraj/.nuget/NuGet/NuGet.Config"
@@ -581,7 +581,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "CodexPlayer.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
+      "message": "Panda Player.Core depends on System.Reactive (>= 5.4.1) but System.Reactive 5.4.1 was not found. System.Reactive 6.0.0 was resolved instead.",
       "libraryId": "System.Reactive",
       "targetGraphs": [
         "net8.0",
