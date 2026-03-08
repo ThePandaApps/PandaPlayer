@@ -1,0 +1,737 @@
+<Window x:Class="CodexPlayer.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vlc="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
+        Title="Panda Player" Height="720" Width="1280" WindowState="Maximized"
+        Icon="/panda.ico"
+        PreviewKeyDown="Window_KeyDown" MouseMove="Window_MouseMove"
+        FontFamily="Segoe UI" Background="#1A1A1A" Foreground="#E8E8E8">
+
+    <Window.Resources>
+
+        <!-- ══════════════════════════════════════════
+             SYSTEM COLOR OVERRIDES
+             WPF's default MenuItem / ContextMenu templates
+             look up these keys via DynamicResource, so
+             overriding them here forces dark colours on
+             all menus without needing a full ControlTemplate.
+        ══════════════════════════════════════════ -->
+        <SolidColorBrush x:Key="{x:Static SystemColors.MenuBrushKey}"          Color="#252525"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.MenuBarBrushKey}"       Color="#252525"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.MenuHighlightBrushKey}" Color="#0078D4"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.MenuTextBrushKey}"      Color="#E8E8E8"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"       Color="#2D2D2D"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}"   Color="#E8E8E8"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"     Color="#0078D4"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.GrayTextBrushKey}"      Color="#606060"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}"        Color="#1A1A1A"/>
+        <SolidColorBrush x:Key="{x:Static SystemColors.WindowTextBrushKey}"    Color="#E8E8E8"/>
+
+        <!-- ══════════════════════════════════════════
+             COLOUR PALETTE
+        ══════════════════════════════════════════ -->
+        <SolidColorBrush x:Key="BrBgWindow"   Color="#1A1A1A"/>
+        <SolidColorBrush x:Key="BrBgPanel"    Color="#252525"/>
+        <SolidColorBrush x:Key="BrBgControl"  Color="#2D2D2D"/>
+        <SolidColorBrush x:Key="BrBgHover"    Color="#383838"/>
+        <SolidColorBrush x:Key="BrBgActive"   Color="#454545"/>
+        <SolidColorBrush x:Key="BrAccent"     Color="#0078D4"/>
+        <SolidColorBrush x:Key="BrAccentHov"  Color="#1082D5"/>
+        <SolidColorBrush x:Key="BrAccentPrs"  Color="#006CBE"/>
+        <SolidColorBrush x:Key="BrTextPri"    Color="#E8E8E8"/>
+        <SolidColorBrush x:Key="BrTextSec"    Color="#909090"/>
+        <SolidColorBrush x:Key="BrBorder"     Color="#3A3A3A"/>
+        <SolidColorBrush x:Key="BrSuccess"    Color="#3DC970"/>
+        <SolidColorBrush x:Key="BrWarning"    Color="#E8A020"/>
+
+        <!-- ══════════════════════════════════════════
+             VECTOR ICONS  (Material Design paths, 24×24 viewbox)
+        ══════════════════════════════════════════ -->
+        <Geometry x:Key="IcoPlay">M8,5.14V19.14L19,12.14L8,5.14Z</Geometry>
+        <Geometry x:Key="IcoPause">M6,19h4V5H6V19zm8-14v14h4V5h-4z</Geometry>
+        <Geometry x:Key="IcoStop">M6,6h12v12H6z</Geometry>
+        <Geometry x:Key="IcoPrev">M6,6h2v12H6zm3.5,6l8.5,6V6z</Geometry>
+        <Geometry x:Key="IcoNext">M6,18l8.5-6L6,6v12zM16,6v12h2V6h-2z</Geometry>
+        <Geometry x:Key="IcoSeekBack">M11,19V5l-9,7l9,7zm9,0V5l-9,7l9,7z</Geometry>
+        <Geometry x:Key="IcoSeekFwd">M4,19l9-7L4,5v14zm9-14v14l9-7l-9-7z</Geometry>
+        <Geometry x:Key="IcoRefresh">M17.65,6.35C16.2,4.9,14.21,4,12,4c-4.42,0-7.99,3.58-7.99,8s3.57,8,7.99,8c3.73,0,6.84-2.55,7.73-6h-2.08c-0.82,2.33-3.04,4-5.65,4c-3.31,0-6-2.69-6-6s2.69-6,6-6c1.66,0,3.14,0.69,4.22,1.78L13,11h7V4L17.65,6.35z</Geometry>
+        <Geometry x:Key="IcoVolume">M3,9v6h4l5,5V4L7,9H3z M16.5,12c0-1.77-1.02-3.29-2.5-4.03v8.05C15.48,15.29,16.5,13.77,16.5,12z M14,3.23v2.06c2.89,0.86,5,3.54,5,6.71s-2.11,5.85-5,6.71v2.06c4.01-0.91,7-4.49,7-8.77S17.01,4.14,14,3.23z</Geometry>
+        <Geometry x:Key="IcoMute">M16.5,12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45,2.45C16.47,12.44,16.5,12.22,16.5,12z M19,12c0,0.94-0.2,1.82-0.54,2.64l1.51,1.51C20.63,14.91,21,13.5,21,12c0-4.28-2.99-7.86-7-8.77v2.06C16.89,6.15,19,8.83,19,12z M4.27,3L3,4.27L7.73,9H3v6h4l5,5v-6.73l4.25,4.25c-0.67,0.52-1.42,0.93-2.25,1.18v2.06c1.38-0.31,2.63-0.95,3.69-1.81L19.73,21L21,19.73l-9-9L4.27,3z M12,4L9.91,6.09L12,8.18V4z</Geometry>
+        <Geometry x:Key="IcoCamera">M9,2L7.17,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6c0-1.1-0.9-2-2-2h-3.17L15,2H9z M12,17c-2.76,0-5-2.24-5-5s2.24-5,5-5s5,2.24,5,5S14.76,17,12,17z</Geometry>
+        <Geometry x:Key="IcoFullscreen">M7,14H5v5h5v-2H7V14z M5,10h2V7h3V5H5V10z M17,17h-3v2h5v-5h-2V17z M14,5v2h3v3h2V5H14z</Geometry>
+        <Geometry x:Key="IcoSidebar">M3,18h18v-2H3V18z M3,13h18v-2H3V13z M3,6v2h18V6H3z</Geometry>
+        <Geometry x:Key="IcoFolder">M10,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8c0-1.1-0.9-2-2-2h-8L10,4z</Geometry>
+        <Geometry x:Key="IcoAdd">M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z</Geometry>
+        <Geometry x:Key="IcoRemove">M19,13H5v-2h14V13z</Geometry>
+
+        <!-- ══════════════════════════════════════════
+             ICON PATH BASE STYLE
+        ══════════════════════════════════════════ -->
+        <Style x:Key="Ico" TargetType="Path">
+            <Setter Property="Fill"               Value="{StaticResource BrTextPri}"/>
+            <Setter Property="Stretch"            Value="Uniform"/>
+            <Setter Property="Height"             Value="14"/>
+            <Setter Property="VerticalAlignment"  Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="IcoSec" TargetType="Path" BasedOn="{StaticResource Ico}">
+            <Setter Property="Fill" Value="{StaticResource BrTextSec}"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             FLAT BUTTON
+        ══════════════════════════════════════════ -->
+        <Style x:Key="FlatBtn" TargetType="Button">
+            <Setter Property="Background"        Value="Transparent"/>
+            <Setter Property="Foreground"        Value="{StaticResource BrTextPri}"/>
+            <Setter Property="BorderThickness"   Value="0"/>
+            <Setter Property="Cursor"            Value="Hand"/>
+            <Setter Property="FocusVisualStyle"  Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                CornerRadius="4" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrBgHover}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrBgActive}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.35"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Accent (Play) round button -->
+        <Style x:Key="PlayBtn" TargetType="Button">
+            <Setter Property="Background"       Value="{StaticResource BrAccent}"/>
+            <Setter Property="Foreground"       Value="White"/>
+            <Setter Property="BorderThickness"  Value="0"/>
+            <Setter Property="Cursor"           Value="Hand"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                CornerRadius="100" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrAccentHov}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrAccentPrs}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Small icon button (28×28) -->
+        <Style x:Key="SmBtn" TargetType="Button" BasedOn="{StaticResource FlatBtn}">
+            <Setter Property="Width"   Value="30"/>
+            <Setter Property="Height"  Value="28"/>
+            <Setter Property="Padding" Value="6"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             DARK SLIDER
+        ══════════════════════════════════════════ -->
+        <Style x:Key="DkSlider" TargetType="Slider">
+            <Setter Property="Focusable"        Value="False"/>
+            <Setter Property="IsTabStop"        Value="False"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Slider">
+                        <Grid>
+                            <Track x:Name="PART_Track" VerticalAlignment="Center">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="Slider.DecreaseLarge" Focusable="False" Cursor="Hand">
+                                        <RepeatButton.Template>
+                                            <ControlTemplate TargetType="RepeatButton">
+                                                <Border Height="3" Background="{StaticResource BrAccent}" CornerRadius="2,0,0,2"/>
+                                            </ControlTemplate>
+                                        </RepeatButton.Template>
+                                    </RepeatButton>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="Slider.IncreaseLarge" Focusable="False" Cursor="Hand">
+                                        <RepeatButton.Template>
+                                            <ControlTemplate TargetType="RepeatButton">
+                                                <Border Height="3" Background="{StaticResource BrBgActive}" CornerRadius="0,2,2,0"/>
+                                            </ControlTemplate>
+                                        </RepeatButton.Template>
+                                    </RepeatButton>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Cursor="Hand" Focusable="False">
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Ellipse Width="11" Height="11" Fill="White" Margin="-4,-4,-4,-4"/>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             DARK COMBOBOX
+        ══════════════════════════════════════════ -->
+        <Style x:Key="DkCombo" TargetType="ComboBox">
+            <Setter Property="Background"       Value="{StaticResource BrBgControl}"/>
+            <Setter Property="Foreground"       Value="{StaticResource BrTextPri}"/>
+            <Setter Property="BorderBrush"      Value="{StaticResource BrBorder}"/>
+            <Setter Property="BorderThickness"  Value="1"/>
+            <Setter Property="Padding"          Value="8,5"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="22"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter x:Name="ContentSite"
+                                                      Content="{TemplateBinding SelectionBoxItem}"
+                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      IsHitTestVisible="False"
+                                                      VerticalAlignment="Center"/>
+                                    <Path Grid.Column="1" Data="M0,0 L4,4 L8,0"
+                                          Stroke="{StaticResource BrTextSec}" StrokeThickness="1.5"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <ToggleButton Grid.ColumnSpan="2"
+                                                  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                  Focusable="False" Opacity="0"/>
+                                </Grid>
+                            </Border>
+                            <Popup x:Name="PART_Popup" Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
+                                <Border Background="{StaticResource BrBgControl}"
+                                        BorderBrush="{StaticResource BrAccent}"
+                                        BorderThickness="1" CornerRadius="4"
+                                        MinWidth="{TemplateBinding ActualWidth}" MaxHeight="280">
+                                    <ScrollViewer>
+                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource BrAccent}"/>
+                            </Trigger>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource BrAccent}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Foreground"       Value="{StaticResource BrTextPri}"/>
+                    <Setter Property="Background"       Value="Transparent"/>
+                    <Setter Property="Padding"          Value="10,6"/>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ComboBoxItem">
+                                <Border x:Name="Bd" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsHighlighted" Value="True">
+                                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrBgHover}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrAccent}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             DARK LISTBOX + LISTBOXITEM
+        ══════════════════════════════════════════ -->
+        <Style x:Key="DkList" TargetType="ListBox">
+            <Setter Property="Background"                               Value="Transparent"/>
+            <Setter Property="Foreground"                               Value="{StaticResource BrTextPri}"/>
+            <Setter Property="BorderThickness"                          Value="0"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="FocusVisualStyle"                         Value="{x:Null}"/>
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Background"       Value="Transparent"/>
+            <Setter Property="Foreground"       Value="{StaticResource BrTextPri}"/>
+            <Setter Property="Padding"          Value="10,5"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrBgControl}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BrAccent}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             DARK SCROLLBAR (thin)
+        ══════════════════════════════════════════ -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width"      Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="Transparent">
+                            <Track x:Name="PART_Track" IsDirectionReversed="True">
+                                <Track.Thumb>
+                                    <Thumb>
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Border Background="#555" CornerRadius="3" Margin="1"/>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Menu / MenuItem / ContextMenu defined in App.xaml
+             (Popup windows only inherit Application.Resources) -->
+
+        <!-- ══════════════════════════════════════════
+             STATUS BAR
+        ══════════════════════════════════════════ -->
+        <Style TargetType="StatusBar">
+            <Setter Property="Background" Value="{StaticResource BrBgPanel}"/>
+            <Setter Property="Foreground" Value="{StaticResource BrTextSec}"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             EXPANDER (sidebar sections)
+        ══════════════════════════════════════════ -->
+        <Style TargetType="Expander">
+            <Setter Property="Background"    Value="Transparent"/>
+            <Setter Property="Foreground"    Value="{StaticResource BrTextSec}"/>
+            <Setter Property="FontSize"      Value="10"/>
+            <Setter Property="FontWeight"    Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             GRID SPLITTER
+        ══════════════════════════════════════════ -->
+        <Style TargetType="GridSplitter">
+            <Setter Property="Background" Value="{StaticResource BrBorder}"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             SEPARATOR
+        ══════════════════════════════════════════ -->
+        <Style TargetType="Separator">
+            <Setter Property="Background" Value="{StaticResource BrBorder}"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             TOOLBAR
+        ══════════════════════════════════════════ -->
+        <Style TargetType="ToolBar">
+            <Setter Property="Background"      Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style TargetType="ToolBarTray">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+    </Window.Resources>
+
+    <DockPanel Background="{StaticResource BrBgWindow}">
+
+        <!-- ══ MENU BAR ══════════════════════════════════════ -->
+        <Menu x:Name="MainMenu" DockPanel.Dock="Top">
+            <MenuItem Header="_Media">
+                <MenuItem Header="Open _File…"   Click="OpenFile_Click"   InputGestureText="Ctrl+O"/>
+                <MenuItem Header="Open F_older…" Click="OpenFolder_Click" InputGestureText="Ctrl+F"/>
+                <Separator/>
+                <MenuItem Header="_Quit"          Click="Quit_Click"       InputGestureText="Ctrl+Q"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Toggle Playlist"  Click="ToggleSidebar_Click" InputGestureText="Ctrl+L"/>
+                <MenuItem Header="_Fullscreen"       Click="Fullscreen_Click"   InputGestureText="F"/>
+            </MenuItem>
+            <MenuItem Header="_Playback">
+                <MenuItem Header="_Play / Pause"    Click="PlayPause_Click" InputGestureText="Space"/>
+                <MenuItem Header="_Stop"            Click="Stop_Click"      InputGestureText="Esc"/>
+                <Separator/>
+                <MenuItem Header="Pre_vious"        Click="Previous_Click"  InputGestureText="P"/>
+                <MenuItem Header="_Next"            Click="Next_Click"      InputGestureText="N"/>
+                <Separator/>
+                <MenuItem Header="Seek Forward"     Click="SeekFwd_Click"   InputGestureText="→"/>
+                <MenuItem Header="Seek Backward"    Click="SeekBack_Click"  InputGestureText="←"/>
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Header="_Screenshot"          Click="Screenshot_Click" InputGestureText="Ctrl+S"/>
+                <MenuItem Header="Add Move _Target"     Click="AddTarget_Click"/>
+                <MenuItem Header="_Go to Time…"         Click="GotoTime_Click"   InputGestureText="Ctrl+G"/>
+                <Separator/>
+                <MenuItem Header="Seek Jump Step…"      Click="SeekJump_Click"/>
+                <MenuItem Header="Keyboard Shortcuts…"  Click="Settings_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- ══ STATUS BAR ════════════════════════════════════ -->
+        <StatusBar x:Name="MainStatusBar" DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="StatusText"
+                           Text="Ready — open a folder or file to begin"
+                           Foreground="{StaticResource BrTextSec}" FontSize="11"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <!-- ══ MAIN CONTENT ══════════════════════════════════ -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="260" x:Name="RightPanelColumn" MinWidth="0"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ─── LEFT: Video area + controls ─────────────────── -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Video surface (black bg – VLC renders here) -->
+                <vlc:VideoView Grid.Row="0" x:Name="VideoView" Background="Black"/>
+
+                <!-- Placeholder: shown when no video loaded -->
+                <StackPanel Grid.Row="0" x:Name="PlaceholderPanel"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            IsHitTestVisible="False">
+                    <Path Data="{StaticResource IcoFolder}" Fill="#2E2E2E"
+                          Width="72" Height="72" Stretch="Uniform"
+                          HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock Text="Double-click to open a folder"
+                               Foreground="#484848" FontSize="15" FontWeight="Light"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="or use  Media › Open Folder / File"
+                               Foreground="#363636" FontSize="11"
+                               HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <!-- White flash for screenshot feedback (always transparent, animated on shot) -->
+                <Border Grid.Row="0" x:Name="ScreenshotFlash"
+                        Background="White" Opacity="0" IsHitTestVisible="False"/>
+
+                <!-- Transparent overlay: intercepts double-click / right-click above VLC's HWND -->
+                <Border Grid.Row="0" x:Name="VideoOverlay" Background="Transparent"
+                        MouseLeftButtonDown="VideoOverlay_MouseLeftButtonDown"
+                        ContextMenuOpening="VideoOverlay_ContextMenuOpening">
+                    <Border.ContextMenu>
+                        <ContextMenu x:Name="VideoContextMenu"
+                                     Background="{StaticResource BrBgControl}"
+                                     Foreground="{StaticResource BrTextPri}"
+                                     BorderBrush="{StaticResource BrBorder}"
+                                     BorderThickness="1"/>
+                    </Border.ContextMenu>
+                </Border>
+
+                <!-- Seek / time row -->
+                <Grid Grid.Row="1" x:Name="SeekRow" Margin="10,6,10,2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="TimeDisplay" Text="0:00"
+                               FontSize="11" FontFamily="Consolas"
+                               VerticalAlignment="Center" Margin="0,0,8,0"
+                               Foreground="{StaticResource BrTextSec}"/>
+                    <Slider Grid.Column="1" x:Name="SeekSlider"
+                            Style="{StaticResource DkSlider}"
+                            Minimum="0" Maximum="1" SmallChange="0.005" LargeChange="0.05"
+                            IsMoveToPointEnabled="True" VerticalAlignment="Center" Cursor="Hand"
+                            ValueChanged="SeekSlider_ValueChanged"/>
+                    <TextBlock Grid.Column="2" x:Name="DurationDisplay" Text="0:00"
+                               FontSize="11" FontFamily="Consolas"
+                               VerticalAlignment="Center" Margin="8,0,0,0"
+                               Foreground="{StaticResource BrTextSec}"/>
+                </Grid>
+
+                <!-- Transport bar -->
+                <Border Grid.Row="2" x:Name="TransportBar"
+                        Background="{StaticResource BrBgPanel}" Padding="0,5,0,7">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Left: counter -->
+                        <StackPanel Grid.Column="0" Orientation="Horizontal"
+                                    VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock x:Name="PlayCountDisplay" Text="—"
+                                       FontSize="11" VerticalAlignment="Center"
+                                       Foreground="{StaticResource BrTextSec}" Margin="0,0,4,0"/>
+                            <Button Click="ResetPlayCounter_Click" Style="{StaticResource FlatBtn}"
+                                    ToolTip="Reset play counter" Width="24" Height="24" Padding="5">
+                                <Path Data="{StaticResource IcoRefresh}" Style="{StaticResource IcoSec}" Height="11"/>
+                            </Button>
+                        </StackPanel>
+
+                        <!-- Center: transport + mode -->
+                        <StackPanel Grid.Column="1" Orientation="Horizontal"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Button Click="Previous_Click" Style="{StaticResource FlatBtn}"
+                                    ToolTip="Previous (P)" Width="36" Height="36" Padding="9">
+                                <Path Data="{StaticResource IcoPrev}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <Button Click="SeekBack_Click" x:Name="SeekBackBtn"
+                                    Style="{StaticResource FlatBtn}"
+                                    ToolTip="Seek back (←)" Width="36" Height="36" Padding="9">
+                                <Path Data="{StaticResource IcoSeekBack}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <!-- Seek jump badge (shows seconds, click to change) -->
+                            <Button x:Name="SeekJumpBadge" Click="SeekJump_Click"
+                                    Style="{StaticResource FlatBtn}"
+                                    ToolTip="Seek jump — click to change" Padding="6,2" Margin="1,0">
+                                <TextBlock x:Name="SeekJumpText" Text="5s"
+                                           FontSize="10" FontWeight="SemiBold"
+                                           Foreground="{StaticResource BrTextSec}"/>
+                            </Button>
+                            <!-- Big play/pause round button -->
+                            <Button x:Name="PlayPauseBtn" Click="PlayPause_Click"
+                                    Style="{StaticResource PlayBtn}"
+                                    ToolTip="Play / Pause (Space)"
+                                    Width="48" Height="48" Padding="13" Margin="4,0">
+                                <Path x:Name="PlayPausePath" Data="{StaticResource IcoPlay}"
+                                      Fill="White" Height="18" Width="18" Stretch="Uniform" Margin="2,0,0,0"/>
+                            </Button>
+                            <Button Click="SeekFwd_Click" x:Name="SeekFwdBtn"
+                                    Style="{StaticResource FlatBtn}"
+                                    ToolTip="Seek forward (→)" Width="36" Height="36" Padding="9">
+                                <Path Data="{StaticResource IcoSeekFwd}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <Button Click="Next_Click" Style="{StaticResource FlatBtn}"
+                                    ToolTip="Next (N)" Width="36" Height="36" Padding="9">
+                                <Path Data="{StaticResource IcoNext}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <Button Click="Stop_Click" Style="{StaticResource FlatBtn}"
+                                    ToolTip="Stop (Esc)" Width="36" Height="36" Padding="10">
+                                <Path Data="{StaticResource IcoStop}" Style="{StaticResource Ico}"/>
+                            </Button>
+
+                            <!-- Divider -->
+                            <Border Width="1" Background="{StaticResource BrBorder}" Margin="8,6"/>
+
+                            <!-- Playback mode -->
+                            <ComboBox x:Name="PlaybackModeBox" Width="155"
+                                      Style="{StaticResource DkCombo}"
+                                      SelectedIndex="0" SelectionChanged="PlaybackMode_Changed"
+                                      VerticalAlignment="Center" ToolTip="Playback mode" FontSize="12">
+                                <ComboBoxItem>Sequential</ComboBoxItem>
+                                <ComboBoxItem>Shuffle</ComboBoxItem>
+                                <ComboBoxItem>No-Repeat Shuffle</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Right: volume + extras -->
+                        <StackPanel Grid.Column="2" Orientation="Horizontal"
+                                    VerticalAlignment="Center" Margin="0,0,10,0">
+                            <Button Click="Mute_Click" x:Name="MuteBtn"
+                                    Style="{StaticResource SmBtn}" ToolTip="Mute (M)">
+                                <Path x:Name="MutePath" Data="{StaticResource IcoVolume}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <Slider x:Name="VolumeSlider" Style="{StaticResource DkSlider}"
+                                    Width="82" Minimum="0" Maximum="100" Value="100"
+                                    LargeChange="10" SmallChange="5"
+                                    IsMoveToPointEnabled="True" VerticalAlignment="Center"
+                                    Margin="4,0" Cursor="Hand"
+                                    PreviewMouseLeftButtonDown="VolumeSlider_PreviewMouseLeftButtonDown"
+                                    ValueChanged="Volume_Changed" ToolTip="Volume (↑/↓)"/>
+                            <TextBlock x:Name="VolumeDisplay" Text="100"
+                                       FontSize="11" Width="28" VerticalAlignment="Center"
+                                       Foreground="{StaticResource BrTextSec}" Margin="2,0,8,0"/>
+                            <Border Width="1" Background="{StaticResource BrBorder}" Margin="0,5,8,5"/>
+                            <Button Click="Screenshot_Click" Style="{StaticResource SmBtn}"
+                                    ToolTip="Screenshot (Ctrl+S)">
+                                <Path Data="{StaticResource IcoCamera}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <Button Click="ToggleSidebar_Click" Style="{StaticResource SmBtn}"
+                                    ToolTip="Toggle Sidebar (Ctrl+L)">
+                                <Path Data="{StaticResource IcoSidebar}" Style="{StaticResource Ico}"/>
+                            </Button>
+                            <Button Click="Fullscreen_Click" Style="{StaticResource SmBtn}"
+                                    ToolTip="Fullscreen (F)">
+                                <Path Data="{StaticResource IcoFullscreen}" Style="{StaticResource Ico}"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- ─── Splitter ───────────────────────────────────── -->
+            <GridSplitter Grid.Column="1" x:Name="MainSplitter" Width="3"
+                          HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                          ResizeBehavior="PreviousAndNext" Cursor="SizeWE"/>
+
+            <!-- ─── RIGHT: Playlist + Targets + Jobs ──────────── -->
+            <Border Grid.Column="2" Background="{StaticResource BrBgPanel}"
+                    BorderBrush="{StaticResource BrBorder}" BorderThickness="1,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Playlist section -->
+                    <DockPanel Grid.Row="0">
+                        <!-- Header -->
+                        <Border DockPanel.Dock="Top"
+                                BorderBrush="{StaticResource BrBorder}" BorderThickness="0,0,0,1"
+                                Padding="12,7">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="PLAYLIST"
+                                           FontSize="10" FontWeight="Bold"
+                                           Foreground="{StaticResource BrTextSec}"
+                                           VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" x:Name="PlaylistCountText"
+                                           Text="0 videos" FontSize="11"
+                                           Foreground="{StaticResource BrTextSec}"
+                                           VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <!-- Playlist items -->
+                        <ListBox x:Name="PlaylistBox" Style="{StaticResource DkList}"
+                                 Background="{StaticResource BrBgWindow}"
+                                 MouseDoubleClick="PlaylistItem_DoubleClick"
+                                 ContextMenuOpening="PlaylistBox_ContextMenuOpening">
+                            <ListBox.ContextMenu>
+                                <ContextMenu x:Name="PlaylistContextMenu"
+                                             Background="{StaticResource BrBgControl}"
+                                             Foreground="{StaticResource BrTextPri}"
+                                             BorderBrush="{StaticResource BrBorder}"
+                                             BorderThickness="1"/>
+                            </ListBox.ContextMenu>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" FontSize="12"
+                                               TextTrimming="CharacterEllipsis"
+                                               ToolTip="{Binding}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+
+                    <!-- Move Targets section -->
+                    <Border Grid.Row="1" BorderBrush="{StaticResource BrBorder}" BorderThickness="0,1,0,0">
+                        <Expander Header="MOVE TARGETS" IsExpanded="True">
+                            <DockPanel MaxHeight="160" Background="{StaticResource BrBgPanel}">
+                                <Border DockPanel.Dock="Bottom"
+                                        BorderBrush="{StaticResource BrBorder}" BorderThickness="0,1,0,0"
+                                        Padding="8,4">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Click="AddTarget_Click" Style="{StaticResource FlatBtn}"
+                                                Padding="8,4" FontSize="11"
+                                                Foreground="{StaticResource BrAccent}"
+                                                ToolTip="Add a destination folder">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Path Data="{StaticResource IcoAdd}" Fill="{StaticResource BrAccent}"
+                                                      Height="12" Width="12" Stretch="Uniform" Margin="0,0,5,0"/>
+                                                <TextBlock Text="Add target folder"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button Click="RemoveTarget_Click" Style="{StaticResource FlatBtn}"
+                                                Padding="8,4" FontSize="11" Margin="4,0,0,0"
+                                                Foreground="{StaticResource BrTextSec}"
+                                                ToolTip="Remove selected target">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Path Data="{StaticResource IcoRemove}" Fill="{StaticResource BrTextSec}"
+                                                      Height="12" Width="12" Stretch="Uniform" Margin="0,0,5,0"/>
+                                                <TextBlock Text="Remove"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </Border>
+                                <ListBox x:Name="TargetsBox" Style="{StaticResource DkList}"
+                                         Background="{StaticResource BrBgPanel}" FontSize="11">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" FontSize="11"
+                                                       TextTrimming="CharacterEllipsis"
+                                                       ToolTip="{Binding}"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </Expander>
+                    </Border>
+
+                    <!-- Move Log section -->
+                    <Border Grid.Row="2" BorderBrush="{StaticResource BrBorder}" BorderThickness="0,1,0,0">
+                        <Expander Header="MOVE LOG" IsExpanded="False">
+                            <ListBox x:Name="JobsBox" MaxHeight="100"
+                                     Style="{StaticResource DkList}"
+                                     Background="{StaticResource BrBgPanel}" FontSize="11"/>
+                        </Expander>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

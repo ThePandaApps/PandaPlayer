@@ -1,0 +1,17 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimalist Panda Face Icon -->
+  <circle cx="128" cy="128" r="120" fill="white" stroke="black" stroke-width="8"/>
+  <!-- Ears -->
+  <circle cx="60" cy="60" r="35" fill="black"/>
+  <circle cx="196" cy="60" r="35" fill="black"/>
+  <!-- Eye Patches -->
+  <ellipse cx="85" cy="110" rx="25" ry="35" fill="black" transform="rotate(-30 85 110)"/>
+  <ellipse cx="171" cy="110" rx="25" ry="35" fill="black" transform="rotate(30 171 110)"/>
+  <!-- Eyes -->
+  <circle cx="90" cy="105" r="5" fill="white"/>
+  <circle cx="166" cy="105" r="5" fill="white"/>
+  <!-- Nose -->
+  <path d="M128 150 L115 140 L141 140 Z" fill="black"/>
+  <!-- Mouth -->
+  <path d="M128 150 Q118 170 100 160 M128 150 Q138 170 156 160" stroke="black" stroke-width="4" fill="none"/>
+</svg>

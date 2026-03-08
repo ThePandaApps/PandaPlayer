@@ -1,0 +1,15 @@
+/Users/manuraj/Panda Player/publish/CodexPlayer.UI
+/Users/manuraj/Panda Player/publish/CodexPlayer.UI.dll
+/Users/manuraj/Panda Player/publish/CodexPlayer.UI.deps.json
+/Users/manuraj/Panda Player/publish/CodexPlayer.UI.runtimeconfig.json
+/Users/manuraj/Panda Player/publish/CodexPlayer.UI.pdb
+/Users/manuraj/Panda Player/publish/LibVLCSharp.dll
+/Users/manuraj/Panda Player/publish/LibVLCSharp.Forms.dll
+/Users/manuraj/Panda Player/publish/Newtonsoft.Json.dll
+/Users/manuraj/Panda Player/publish/System.Reactive.dll
+/Users/manuraj/Panda Player/publish/Xamarin.Forms.Core.dll
+/Users/manuraj/Panda Player/publish/Xamarin.Forms.Platform.dll
+/Users/manuraj/Panda Player/publish/Xamarin.Forms.Xaml.dll
+/Users/manuraj/Panda Player/publish/fr/LibVLCSharp.Forms.resources.dll
+/Users/manuraj/Panda Player/publish/CodexPlayer.Core.dll
+/Users/manuraj/Panda Player/publish/CodexPlayer.Core.pdb

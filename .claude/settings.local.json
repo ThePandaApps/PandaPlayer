@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"from PIL import Image, ImageDraw; print\\(''Pillow OK''\\)\")",
+      "Bash(python3 -c \"import cairosvg; print\\(''cairosvg OK''\\)\")",
+      "Bash(python3 -c \"import struct; print\\(''struct OK''\\)\")",
+      "Bash(pip3 install Pillow --quiet)",
+      "Bash(pip3 install Pillow)",
+      "Bash(python3:*)",
+      "Bash(dotnet publish CodexPlayer/CodexPlayer.UI/CodexPlayer.UI.csproj -c Release -r win-x64 --self-contained -o ./publish)",
+      "Bash(wc -l ~/.claude/projects/-Users-manuraj-Panda-Player/*.jsonl)",
+      "Bash(ls -lah ~/.claude/projects/-Users-manuraj-Panda-Player/*/subagents/*.jsonl)"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.csproj.AssemblyReference.cache
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.AssemblyInfoInputs.cache
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.AssemblyInfo.cs
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.csproj.CoreCompileInputs.cache
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/bin/Release/net8.0/CodexPlayer.Core.deps.json
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/bin/Release/net8.0/CodexPlayer.Core.dll
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/bin/Release/net8.0/CodexPlayer.Core.pdb
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.dll
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/refint/CodexPlayer.Core.dll
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/CodexPlayer.Core.pdb
+/Users/manuraj/Panda Player/CodexPlayer/CodexPlayer.Core/obj/Release/net8.0/ref/CodexPlayer.Core.dll

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>CodexPlayer.Launcher</AssemblyName>
+    <RootNamespace>CodexPlayer.Launcher</RootNamespace>
+    <OutputType>WinExe</OutputType>
+    <LangVersion>latest</LangVersion>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodexPlayer.UI\CodexPlayer.UI.csproj" />
+  </ItemGroup>
+
+</Project>
